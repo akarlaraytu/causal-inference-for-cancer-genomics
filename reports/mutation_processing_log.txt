@@ -1,0 +1,165 @@
+[01:36:55] [INFO] 
+================================================================================
+[01:36:55] [INFO]   MUTATION MATRIX CONSTRUCTION PIPELINE V2
+[01:36:55] [INFO] ================================================================================
+
+[01:36:55] [INFO] 🚀 Starting enhanced mutation matrix construction...
+[01:36:55] [INFO] Source directory: data/maf_files
+[01:36:55] [INFO] Output file: results/master_mutation_matrix.csv
+[01:36:55] [INFO] 
+================================================================================
+[01:36:55] [INFO]   STEP 1: DISCOVER MAF FILES
+[01:36:55] [INFO] ================================================================================
+
+[01:36:55] [INFO] Searching for MAF files in: data/maf_files
+[01:36:55] [INFO] ✓ Found 992 MAF files
+[01:36:55] [INFO]   Total size: 32.0 MB
+[01:36:55] [INFO] 
+================================================================================
+[01:36:55] [INFO]   STEP 2: CONSOLIDATE MAF FILES
+[01:36:55] [INFO] ================================================================================
+
+[01:36:55] [INFO] Processing 992 MAF files...
+[01:36:58] [INFO] 
+📊 CONSOLIDATION SUMMARY:
+[01:36:58] [INFO]   Files processed: 991 / 992
+[01:36:58] [INFO]   Files failed: 0
+[01:36:58] [INFO]   Files empty: 1
+[01:36:58] [INFO]   Total mutations: 89,568
+[01:36:58] [INFO] 
+🧬 VARIANT TYPE BREAKDOWN (top 10):
+[01:36:58] [INFO]   Missense_Mutation: 56,027 (62.6%)
+[01:36:58] [INFO]   Silent: 19,730 (22.0%)
+[01:36:58] [INFO]   Nonsense_Mutation: 4,942 (5.5%)
+[01:36:58] [INFO]   Frame_Shift_Del: 3,291 (3.7%)
+[01:36:58] [INFO]   Splice_Site: 1,539 (1.7%)
+[01:36:58] [INFO]   Frame_Shift_Ins: 928 (1.0%)
+[01:36:58] [INFO]   Intron: 737 (0.8%)
+[01:36:58] [INFO]   In_Frame_Del: 624 (0.7%)
+[01:36:58] [INFO]   Splice_Region: 524 (0.6%)
+[01:36:58] [INFO]   RNA: 447 (0.5%)
+[01:36:58] [INFO] 
+================================================================================
+[01:36:58] [INFO]   STEP 3: FILTER & VALIDATE
+[01:36:58] [INFO] ================================================================================
+
+[01:36:58] [INFO] Starting with 89,568 mutations
+[01:36:58] [INFO] 
+🎯 FILTER 1: Impactful variants only
+[01:36:58] [INFO]   Keeping: Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Nonstop_Mutation, Splice_Site, Translation_Start_Site
+[01:36:58] [INFO]   Kept: 67,546 / 89,568 (75.4%)
+[01:36:58] [INFO]   Removed: 22,022 non-impactful variants
+[01:36:58] [INFO] 
+🔍 FILTER 2: Patient ID extraction & validation
+[01:36:58] [INFO]   ✓ All patient IDs valid
+[01:36:58] [INFO]   Unique patients: 967
+[01:36:58] [INFO] 
+🧬 FILTER 3: Gene name validation
+[01:36:58] [INFO]   ✓ All gene names valid
+[01:36:58] [INFO]   Unique genes: 15413
+[01:36:58] [INFO] 
+📊 FILTERING SUMMARY:
+[01:36:58] [INFO]   Original: 89,568
+[01:36:58] [INFO]   Final: 67,546
+[01:36:58] [INFO]   Removed: 22,022 (24.6%)
+[01:36:58] [INFO] 
+================================================================================
+[01:36:58] [INFO]   STEP 4: CREATE BINARY MATRIX
+[01:36:58] [INFO] ================================================================================
+
+[01:36:58] [INFO] Preparing data for matrix creation...
+[01:36:58] [INFO]   Removed 3,943 duplicate mutations (same patient + gene)
+[01:36:58] [INFO]   Unique mutation events: 63,603
+[01:36:58] [INFO]   Unique patients: 967
+[01:36:58] [INFO]   Unique genes: 15413
+[01:36:58] [INFO] 
+🔄 Pivoting to matrix format...
+[01:36:58] [INFO] ✓ Matrix created: 967 patients × 15413 genes
+[01:36:58] [INFO] 
+💾 Optimizing memory usage...
+[01:37:01] [INFO]   Before optimization: 119.29 MB
+[01:37:01] [INFO]   After optimization: 14.96 MB
+[01:37:01] [INFO]   Saved: 104.33 MB (87.5%)
+[01:37:01] [INFO] 
+================================================================================
+[01:37:01] [INFO]   STEP 5: QUALITY CONTROL
+[01:37:01] [INFO] ================================================================================
+
+[01:37:02] [INFO] 🔍 QC Check 1: All-zero genes
+[01:37:02] [INFO]   ✓ No all-zero genes
+[01:37:02] [INFO] 
+🔍 QC Check 2: All-one genes
+[01:37:02] [INFO]   ✓ No all-one genes
+[01:37:02] [INFO] 
+📊 QC Check 3: Mutation frequency distribution
+[01:37:02] [INFO]   Mean mutations per gene: 4.13
+[01:37:02] [INFO]   Median mutations per gene: 3
+[01:37:02] [INFO]   Min: 1
+[01:37:02] [INFO]   Max: 331
+[01:37:02] [INFO] 
+  📉 Rare mutation distribution:
+[01:37:02] [INFO]     Genes with ≤ 1 mutations:  3577 (23.2%)
+[01:37:02] [INFO]     Genes with ≤ 2 mutations:  6758 (43.8%)
+[01:37:02] [INFO]     Genes with ≤ 5 mutations: 12010 (77.9%)
+[01:37:02] [INFO]     Genes with ≤10 mutations: 14570 (94.5%)
+[01:37:02] [INFO]     Genes with ≤20 mutations: 15268 (99.1%)
+[01:37:02] [INFO]     Genes with ≤50 mutations: 15399 (99.9%)
+[01:37:02] [INFO] 
+🔝 QC Check 4: Top 20 mutated genes
+[01:37:02] [INFO]    1. TP53: 331 (34.2%)
+[01:37:02] [INFO]    2. PIK3CA: 328 (33.9%)
+[01:37:02] [INFO]    3. TTN: 167 (17.3%)
+[01:37:02] [INFO]    4. CDH1: 128 (13.2%)
+[01:37:02] [INFO]    5. GATA3: 125 (12.9%)
+[01:37:02] [INFO]    6. MUC16: 99 (10.2%)
+[01:37:02] [INFO]    7. KMT2C: 85 (8.8%)
+[01:37:02] [INFO]    8. MAP3K1: 82 (8.5%)
+[01:37:02] [INFO]    9. HMCN1: 58 (6.0%)
+[01:37:02] [INFO]   10. FLG: 56 (5.8%)
+[01:37:02] [INFO]   11. RYR2: 55 (5.7%)
+[01:37:02] [INFO]   12. SYNE1: 53 (5.5%)
+[01:37:02] [INFO]   13. PTEN: 52 (5.4%)
+[01:37:02] [INFO]   14. USH2A: 51 (5.3%)
+[01:37:02] [INFO]   15. NCOR1: 49 (5.1%)
+[01:37:02] [INFO]   16. ZFHX4: 47 (4.9%)
+[01:37:02] [INFO]   17. SPTA1: 46 (4.8%)
+[01:37:02] [INFO]   18. DMD: 44 (4.6%)
+[01:37:02] [INFO]   19. MUC17: 43 (4.4%)
+[01:37:02] [INFO]   20. NEB: 42 (4.3%)
+[01:37:02] [INFO] 
+👤 QC Check 5: Patient mutation burden
+[01:37:02] [INFO]   Mean: 65.77
+[01:37:02] [INFO]   Median: 33
+[01:37:02] [INFO]   Min: 1
+[01:37:02] [INFO]   Max: 3621
+[01:37:02] [INFO]   Std: 179.41
+[01:37:02] [WARN] 
+  ⚠️  5 HYPERMUTATOR patients detected (>5σ)
+[01:37:02] [INFO]     TCGA-A8-A09Z: 976 mutations (Z=5.07)
+[01:37:02] [INFO]     TCGA-AC-A23H: 3091 mutations (Z=16.86)
+[01:37:02] [INFO]     TCGA-AN-A046: 3621 mutations (Z=19.82)
+[01:37:02] [INFO]     TCGA-AN-A0AK: 1018 mutations (Z=5.31)
+[01:37:02] [INFO]     TCGA-BH-A18G: 1056 mutations (Z=5.52)
+[01:37:02] [INFO]   These patients may need special handling in analysis.
+[01:37:02] [INFO] 
+🕳️  QC Check 6: Matrix sparsity
+[01:37:02] [INFO]   Total cells: 14,904,371
+[01:37:02] [INFO]   Mutated cells: 63,603
+[01:37:02] [INFO]   Sparsity: 99.57%
+[01:37:02] [INFO]   (Expected ~99% for cancer genomics)
+[01:37:02] [INFO] 
+================================================================================
+[01:37:02] [INFO]   STEP 6: GENERATE QC VISUALIZATIONS
+[01:37:02] [INFO] ================================================================================
+
+[01:37:03] [INFO] ✓ QC plots saved: figures/maf_qc/mutation_matrix_qc.png
+[01:37:03] [INFO] 
+================================================================================
+[01:37:03] [INFO]   STEP 7: SAVE OUTPUTS
+[01:37:03] [INFO] ================================================================================
+
+[01:37:03] [INFO] 💾 Saving mutation matrix...
+[01:37:32] [INFO]   ✓ Saved: results/master_mutation_matrix.csv
+[01:37:32] [INFO]   Size: 29.92 MB
+[01:37:32] [INFO] 
+📝 Saving processing log...

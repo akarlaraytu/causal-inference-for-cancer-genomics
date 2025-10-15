@@ -1,0 +1,130 @@
+[02:30:48] [INFO] 
+================================================================================
+[02:30:48] [INFO]   DEEP VALIDATION: RYR2 SKEPTICAL ANALYSIS
+[02:30:48] [INFO] ================================================================================
+
+[02:30:48] [INFO] 
+================================================================================
+[02:30:48] [INFO]   PHASE 1: LOAD DATA & RYR2 CHARACTERISTICS
+[02:30:48] [INFO] ================================================================================
+
+[02:30:49] [INFO] Dataset: (967, 8667)
+[02:30:49] [INFO] RYR2 mutations: 55 / 967 (5.7%)
+[02:30:49] [INFO] Mortality:
+[02:30:49] [INFO]   RYR2 mutated: 5.5%
+[02:30:49] [INFO]   RYR2 wild-type: 14.3%
+[02:30:49] [INFO]   Difference: -8.8% (absolute)
+[02:30:49] [INFO] 
+Fisher exact test: OR=0.347, p=0.0698
+[02:30:49] [INFO] 
+================================================================================
+[02:30:49] [INFO]   PHASE 2: HYPERMUTATOR ASSOCIATION
+[02:30:49] [INFO] ================================================================================
+
+[02:30:49] [INFO] RYR2 mutations:
+[02:30:49] [INFO]   Hypermutators: 2/5 (40.0%)
+[02:30:49] [INFO]   Normal: 53/962 (5.5%)
+[02:30:49] [INFO] 
+RYR2 vs hypermutator status: OR=11.434, p=0.0284
+[02:30:49] [WARN] ⚠️  RYR2 ENRICHED in hypermutators!
+[02:30:49] [INFO]    This suggests RYR2 is a passenger mutation marker
+[02:30:49] [INFO] 
+================================================================================
+[02:30:49] [INFO]   PHASE 3: CO-MUTATION PATTERNS
+[02:30:49] [INFO] ================================================================================
+
+[02:30:49] [INFO] Top 20 genes co-mutated with RYR2:
+[02:30:49] [INFO]    1. TP53: 27 co-mutations (49.1% of RYR2, 8.2% of TP53)
+[02:30:49] [INFO]    2. PIK3CA: 22 co-mutations (40.0% of RYR2, 6.7% of PIK3CA)
+[02:30:49] [INFO]    3. TTN: 22 co-mutations (40.0% of RYR2, 13.2% of TTN)
+[02:30:49] [INFO]    4. MUC16: 18 co-mutations (32.7% of RYR2, 18.2% of MUC16)
+[02:30:49] [INFO]    5. HMCN1: 14 co-mutations (25.5% of RYR2, 24.1% of HMCN1)
+[02:30:49] [INFO]    6. APOB: 11 co-mutations (20.0% of RYR2, 31.4% of APOB)
+[02:30:49] [INFO]    7. LRP2: 10 co-mutations (18.2% of RYR2, 25.6% of LRP2)
+[02:30:49] [INFO]    8. SYNE2: 10 co-mutations (18.2% of RYR2, 26.3% of SYNE2)
+[02:30:49] [INFO]    9. CMYA5: 9 co-mutations (16.4% of RYR2, 37.5% of CMYA5)
+[02:30:49] [INFO]   10. SACS: 9 co-mutations (16.4% of RYR2, 40.9% of SACS)
+[02:30:49] [INFO]   11. SPTA1: 9 co-mutations (16.4% of RYR2, 19.6% of SPTA1)
+[02:30:49] [INFO]   12. AHNAK: 8 co-mutations (14.5% of RYR2, 29.6% of AHNAK)
+[02:30:49] [INFO]   13. ARHGEF11: 8 co-mutations (14.5% of RYR2, 57.1% of ARHGEF11)
+[02:30:49] [INFO]   14. CEP350: 8 co-mutations (14.5% of RYR2, 36.4% of CEP350)
+[02:30:49] [INFO]   15. DNAH8: 8 co-mutations (14.5% of RYR2, 29.6% of DNAH8)
+[02:30:49] [INFO]   16. DYNC2H1: 8 co-mutations (14.5% of RYR2, 33.3% of DYNC2H1)
+[02:30:49] [INFO]   17. FLG: 8 co-mutations (14.5% of RYR2, 14.3% of FLG)
+[02:30:49] [INFO]   18. GON4L: 8 co-mutations (14.5% of RYR2, 33.3% of GON4L)
+[02:30:49] [INFO]   19. HERC2: 8 co-mutations (14.5% of RYR2, 28.6% of HERC2)
+[02:30:49] [INFO]   20. HYDIN: 8 co-mutations (14.5% of RYR2, 33.3% of HYDIN)
+[02:30:49] [INFO] 
+RYR2 co-mutation with known drivers:
+[02:30:49] [INFO]   TP53: OR=1.93, p=0.0194 [ENRICHED]
+[02:30:49] [INFO]   PIK3CA: OR=1.32, p=0.3789 [Independent]
+[02:30:49] [INFO]   PTEN: OR=3.36, p=0.0069 [ENRICHED]
+[02:30:49] [INFO]   CDH1: OR=0.95, p=1.0000 [Independent]
+[02:30:49] [INFO]   GATA3: OR=0.82, p=0.8360 [Independent]
+[02:30:49] [INFO]   MAP3K1: OR=1.08, p=0.8035 [Independent]
+[02:30:49] [INFO] 
+================================================================================
+[02:30:49] [INFO]   PHASE 4: MUTATION PATTERN (if MAF data available)
+[02:30:49] [INFO] ================================================================================
+
+[02:30:49] [INFO] Note: Full mutation pattern analysis requires MAF files
+[02:30:49] [INFO]   - Hotspot analysis (recurrent positions)
+[02:30:49] [INFO]   - Mutation type distribution (missense, nonsense, etc.)
+[02:30:49] [INFO]   - Protein domain analysis
+[02:30:49] [INFO]   - Mutation signature association
+[02:30:49] [INFO] 
+[02:30:49] [INFO] RYR2 has 105 exons → expect SCATTERED passenger mutations
+[02:30:49] [INFO] If mutations are CLUSTERED → more likely functional
+[02:30:49] [INFO] 
+================================================================================
+[02:30:49] [INFO]   PHASE 5: STRATIFIED ANALYSES
+[02:30:49] [INFO] ================================================================================
+
+[02:30:49] [INFO] === BY AGE GROUP ===
+[02:30:49] [INFO]   <50: RYR2 mut=0.0%, wt=12.8%, diff=-12.8%
+[02:30:49] [INFO]   50-60: RYR2 mut=5.0%, wt=11.8%, diff=-6.8%
+[02:30:49] [INFO]   60-70: RYR2 mut=0.0%, wt=13.3%, diff=-13.3%
+[02:30:49] [INFO]   70+: RYR2 mut=18.2%, wt=19.9%, diff=-1.7%
+[02:30:49] [INFO] 
+=== BY STAGE ===
+[02:30:49] [INFO]   Stage I: RYR2 mut=6.0%, wt=10.8%, diff=-4.8%
+[02:30:49] [INFO]   Stage II: RYR2 mut=6.2%, wt=9.7%, diff=-3.4%
+[02:30:49] [INFO]   Stage III: RYR2 mut=16.7%, wt=11.7%, diff=5.0%
+[02:30:49] [INFO] 
+================================================================================
+[02:30:49] [INFO]   PHASE 6: BIOLOGICAL PLAUSIBILITY ASSESSMENT
+[02:30:49] [INFO] ================================================================================
+
+[02:30:49] [INFO] RYR2 (Ryanodine Receptor 2) - Known Biology:
+[02:30:49] [INFO] 
+[02:30:49] [INFO] FUNCTION:
+[02:30:49] [INFO]   - Calcium release channel
+[02:30:49] [INFO]   - Cardiac and skeletal muscle contraction
+[02:30:49] [INFO]   - Intracellular Ca²⁺ homeostasis
+[02:30:49] [INFO] 
+[02:30:49] [INFO] KNOWN DISEASE ASSOCIATIONS:
+[02:30:49] [INFO]   - Arrhythmogenic right ventricular dysplasia (ARVD)
+[02:30:49] [INFO]   - Catecholaminergic polymorphic ventricular tachycardia (CPVT)
+[02:30:49] [INFO]   - Central core disease
+[02:30:49] [INFO] 
+[02:30:49] [INFO] CANCER RELEVANCE:
+[02:30:49] [INFO]   ⚠️  NOT a known breast cancer gene
+[02:30:49] [INFO]   ⚠️  NOT in cancer gene census
+[02:30:49] [INFO]   ⚠️  NOT in breast cancer pathways
+[02:30:49] [INFO]   ⚠️  Calcium signaling IS relevant to apoptosis
+[02:30:49] [INFO]      BUT: RYR2-specific role is UNCLEAR
+[02:30:49] [INFO] 
+[02:30:49] [INFO] GENOMIC CHARACTERISTICS:
+[02:30:49] [INFO]   - Large gene: 105 exons, ~1 Mb genomic span
+[02:30:49] [INFO]   - High background mutation rate (passenger)
+[02:30:49] [INFO]   - Frequently mutated in many cancers (non-specific)
+[02:30:49] [INFO] 
+[02:30:49] [INFO] VERDICT:
+[02:30:49] [INFO]   📊 Statistical signal: YES (FDR q=0.05)
+[02:30:49] [INFO]   🧬 Biological plausibility: LOW
+[02:30:49] [INFO]   🎯 Likely interpretation: FALSE POSITIVE (large gene bias)
+[02:30:49] [INFO] 
+[02:30:49] [INFO] RECOMMENDATION:
+[02:30:49] [INFO]   1. Check external cohorts (METABRIC, ICGC)
+[02:30:49] [INFO]   2. If NOT replicated → likely false positive
+[02:30:49] [INFO]   3. If REPLICATED → warrants functional validation

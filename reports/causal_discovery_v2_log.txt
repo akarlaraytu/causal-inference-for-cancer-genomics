@@ -1,0 +1,459 @@
+[02:10:56] [INFO] 
+================================================================================
+[02:10:56] [INFO]   COMPREHENSIVE CAUSAL DISCOVERY V2
+[02:10:56] [INFO] ================================================================================
+
+[02:10:56] [INFO] 🔬 Production-grade causal inference with improvements
+[02:10:56] [INFO] Random seed: 42
+[02:10:56] [INFO] Known drivers: 21 genes
+[02:10:56] [INFO] 
+================================================================================
+[02:10:56] [INFO]   PHASE 1: DATA PREPARATION V2
+[02:10:56] [INFO] ================================================================================
+
+[02:10:56] [INFO] Loading merged dataset...
+[02:10:56] [INFO]   Dataset shape: (967, 8667)
+[02:10:56] [INFO]   Genes: 8655
+[02:10:56] [INFO]   Patients: 967
+[02:10:56] [INFO] 
+🔧 Constructing SIMPLIFIED confounder matrix...
+[02:10:56] [INFO]   Imputing 41 missing age values with median=58.8
+[02:10:56] [INFO]   Stage grouping:
+[02:10:56] [INFO]     Early (I/II): 767 (79.3%)
+[02:10:56] [INFO]     Advanced (III/IV): 200 (20.7%)
+[02:10:56] [INFO]   Final W shape: (967, 3)
+[02:10:56] [INFO]   W columns: ['age', 'stage_advanced', 'is_hypermutator']
+[02:10:56] [INFO]   ✓ MUCH SIMPLER than V1 (15 dims → 3 dims)
+[02:10:56] [INFO] 
+📊 Outcome distribution:
+[02:10:56] [INFO]   Alive: 834 (86.2%)
+[02:10:56] [INFO]   Dead: 133 (13.8%)
+[02:10:56] [INFO] 
+🔍 Quality checks:
+[02:10:56] [INFO]   ✓ No NaN values
+[02:10:56] [INFO] 
+================================================================================
+[02:10:56] [INFO]   PHASE 2: SCREENING V2 (FIXED)
+[02:10:56] [INFO] ================================================================================
+
+[02:10:56] [INFO] Testing 8655 genes...
+[02:10:56] [INFO] Minimum mutation threshold: 5
+[02:10:58] [INFO] 
+📊 Screening summary:
+[02:10:58] [INFO]   Genes tested: 4654
+[02:10:58] [INFO] 
+🎯 FDR correction (Benjamini-Hochberg)...
+[02:10:58] [INFO]   Alpha: 0.1
+[02:10:58] [INFO]   Genes passing FDR: 0 / 4654
+[02:10:58] [INFO] 
+🎯 Candidate selection strategy:
+[02:10:58] [INFO]   Track 1 (High-frequency, n>=30): 48 genes
+[02:10:58] [INFO]   Track 2 (Known drivers, n>=10): 20 genes
+[02:10:58] [INFO]   Combined candidates: 57 genes
+[02:10:58] [INFO] 
+✓ Screening results saved: results/causal_discovery_v2/screening_results.csv
+[02:10:58] [INFO] 
+================================================================================
+[02:10:58] [INFO]   PHASE 3: CAUSAL ESTIMATION V2
+[02:10:58] [INFO] ================================================================================
+
+[02:10:58] [INFO] Limiting to top 25 by frequency
+[02:10:58] [INFO] Analyzing 25 genes...
+[02:10:58] [INFO] Methods: Robust DR, Permutation Test
+[02:10:58] [INFO] 
+======================================================================
+[02:10:58] [INFO] [1/25] TP53
+[02:10:58] [INFO] ======================================================================
+[02:10:58] [INFO]   ★ KNOWN DRIVER
+[02:10:58] [INFO]   Mutations: 331 / 967 (34.2%)
+[02:10:58] [INFO]   Screening: p=0.1415, q=1.0000
+[02:10:58] [INFO]   [1/3] Propensity diagnostics...
+[02:10:58] [INFO]     Overlap: good
+[02:10:58] [INFO]     Truncated: 0.0%
+[02:10:58] [INFO]     Recommendation: Proceed
+[02:10:58] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:00] [INFO]     ATE = 0.0351 [-0.0029, 0.0821]
+[02:11:00] [INFO]     Successful bootstraps: 150/150
+[02:11:00] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:01] [INFO]     p-value = 0.1133
+[02:11:01] [INFO]     Null distribution: μ=-0.0002, σ=0.0222
+[02:11:01] [INFO] 
+======================================================================
+[02:11:01] [INFO] [2/25] PIK3CA
+[02:11:01] [INFO] ======================================================================
+[02:11:01] [INFO]   ★ KNOWN DRIVER
+[02:11:01] [INFO]   Mutations: 328 / 967 (33.9%)
+[02:11:01] [INFO]   Screening: p=0.9215, q=1.0000
+[02:11:01] [INFO]   [1/3] Propensity diagnostics...
+[02:11:01] [INFO]     Overlap: good
+[02:11:01] [INFO]     Truncated: 0.0%
+[02:11:01] [INFO]     Recommendation: Proceed
+[02:11:01] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:02] [INFO]     ATE = -0.0044 [-0.0432, 0.0363]
+[02:11:02] [INFO]     Successful bootstraps: 150/150
+[02:11:02] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:03] [INFO]     p-value = 0.8533
+[02:11:03] [INFO]     Null distribution: μ=0.0002, σ=0.0226
+[02:11:03] [INFO] 
+======================================================================
+[02:11:03] [INFO] [3/25] TTN
+[02:11:03] [INFO] ======================================================================
+[02:11:03] [INFO]   
+[02:11:03] [INFO]   Mutations: 167 / 967 (17.3%)
+[02:11:03] [INFO]   Screening: p=0.2177, q=1.0000
+[02:11:03] [INFO]   [1/3] Propensity diagnostics...
+[02:11:03] [INFO]     Overlap: good
+[02:11:03] [INFO]     Truncated: 0.0%
+[02:11:03] [INFO]     Recommendation: Proceed
+[02:11:03] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:05] [INFO]     ATE = 0.0292 [-0.0323, 0.0980]
+[02:11:05] [INFO]     Successful bootstraps: 150/150
+[02:11:05] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:06] [INFO]     p-value = 0.3033
+[02:11:06] [INFO]     Null distribution: μ=0.0002, σ=0.0287
+[02:11:06] [INFO] 
+======================================================================
+[02:11:06] [INFO] [4/25] CDH1
+[02:11:06] [INFO] ======================================================================
+[02:11:06] [INFO]   ★ KNOWN DRIVER
+[02:11:06] [INFO]   Mutations: 128 / 967 (13.2%)
+[02:11:06] [INFO]   Screening: p=0.4079, q=1.0000
+[02:11:06] [INFO]   [1/3] Propensity diagnostics...
+[02:11:06] [INFO]     Overlap: good
+[02:11:06] [INFO]     Truncated: 0.0%
+[02:11:06] [INFO]     Recommendation: Proceed
+[02:11:06] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:07] [INFO]     ATE = -0.0469 [-0.0930, 0.0048]
+[02:11:07] [INFO]     Successful bootstraps: 150/150
+[02:11:07] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:09] [INFO]     p-value = 0.1100
+[02:11:09] [INFO]     Null distribution: μ=0.0016, σ=0.0299
+[02:11:09] [INFO] 
+======================================================================
+[02:11:09] [INFO] [5/25] GATA3
+[02:11:09] [INFO] ======================================================================
+[02:11:09] [INFO]   ★ KNOWN DRIVER
+[02:11:09] [INFO]   Mutations: 125 / 967 (12.9%)
+[02:11:09] [INFO]   Screening: p=0.5803, q=1.0000
+[02:11:09] [INFO]   [1/3] Propensity diagnostics...
+[02:11:09] [INFO]     Overlap: good
+[02:11:09] [INFO]     Truncated: 0.0%
+[02:11:09] [INFO]     Recommendation: Proceed
+[02:11:09] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:10] [INFO]     ATE = 0.0158 [-0.0413, 0.0845]
+[02:11:10] [INFO]     Successful bootstraps: 150/150
+[02:11:10] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:11] [INFO]     p-value = 0.6100
+[02:11:11] [INFO]     Null distribution: μ=-0.0014, σ=0.0310
+[02:11:11] [INFO] 
+======================================================================
+[02:11:11] [INFO] [6/25] MUC16
+[02:11:11] [INFO] ======================================================================
+[02:11:11] [INFO]   
+[02:11:11] [INFO]   Mutations: 99 / 967 (10.2%)
+[02:11:11] [INFO]   Screening: p=0.4433, q=1.0000
+[02:11:11] [INFO]   [1/3] Propensity diagnostics...
+[02:11:11] [INFO]     Overlap: good
+[02:11:11] [INFO]     Truncated: 0.0%
+[02:11:11] [INFO]     Recommendation: Proceed
+[02:11:11] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:13] [INFO]     ATE = 0.0114 [-0.0636, 0.0877]
+[02:11:13] [INFO]     Successful bootstraps: 150/150
+[02:11:13] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:14] [INFO]     p-value = 0.7433
+[02:11:14] [INFO]     Null distribution: μ=0.0013, σ=0.0334
+[02:11:14] [INFO] 
+======================================================================
+[02:11:14] [INFO] [7/25] KMT2C
+[02:11:14] [INFO] ======================================================================
+[02:11:14] [INFO]   ★ KNOWN DRIVER
+[02:11:14] [INFO]   Mutations: 85 / 967 (8.8%)
+[02:11:14] [INFO]   Screening: p=0.0468, q=1.0000
+[02:11:14] [INFO]   [1/3] Propensity diagnostics...
+[02:11:14] [INFO]     Overlap: moderate
+[02:11:14] [INFO]     Truncated: 11.9%
+[02:11:14] [INFO]     Recommendation: Proceed with caution
+[02:11:14] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:15] [INFO]     ATE = 0.0686 [-0.0168, 0.1643]
+[02:11:15] [INFO]     Successful bootstraps: 150/150
+[02:11:15] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:18] [INFO]     p-value = 0.0467
+[02:11:18] [INFO]     Null distribution: μ=0.0009, σ=0.0343
+[02:11:18] [INFO] 
+======================================================================
+[02:11:18] [INFO] [8/25] MAP3K1
+[02:11:18] [INFO] ======================================================================
+[02:11:18] [INFO]   ★ KNOWN DRIVER
+[02:11:18] [INFO]   Mutations: 82 / 967 (8.5%)
+[02:11:18] [INFO]   Screening: p=0.8666, q=1.0000
+[02:11:18] [INFO]   [1/3] Propensity diagnostics...
+[02:11:18] [INFO]     Overlap: good
+[02:11:18] [INFO]     Truncated: 6.9%
+[02:11:18] [INFO]     Recommendation: Proceed
+[02:11:18] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:19] [INFO]     ATE = -0.0408 [-0.0956, 0.0310]
+[02:11:19] [INFO]     Successful bootstraps: 150/150
+[02:11:19] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:21] [INFO]     p-value = 0.2367
+[02:11:21] [INFO]     Null distribution: μ=0.0033, σ=0.0358
+[02:11:21] [INFO] 
+======================================================================
+[02:11:21] [INFO] [9/25] HMCN1
+[02:11:21] [INFO] ======================================================================
+[02:11:21] [INFO]   
+[02:11:21] [INFO]   Mutations: 58 / 967 (6.0%)
+[02:11:21] [INFO]   Screening: p=0.5565, q=1.0000
+[02:11:21] [INFO]   [1/3] Propensity diagnostics...
+[02:11:21] [INFO]     Overlap: poor
+[02:11:21] [INFO]     Truncated: 20.7%
+[02:11:21] [INFO]     Recommendation: Caution - weak positivity
+[02:11:21] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:23] [INFO]     ATE = -0.0482 [-0.1221, 0.0289]
+[02:11:23] [INFO]     Successful bootstraps: 150/150
+[02:11:23] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:24] [INFO]     p-value = 0.2300
+[02:11:24] [INFO]     Null distribution: μ=-0.0005, σ=0.0414
+[02:11:24] [INFO] 
+======================================================================
+[02:11:24] [INFO] [10/25] FLG
+[02:11:24] [INFO] ======================================================================
+[02:11:24] [INFO]   
+[02:11:24] [INFO]   Mutations: 56 / 967 (5.8%)
+[02:11:24] [INFO]   Screening: p=0.8428, q=1.0000
+[02:11:24] [INFO]   [1/3] Propensity diagnostics...
+[02:11:24] [INFO]     Overlap: poor
+[02:11:24] [INFO]     Truncated: 27.2%
+[02:11:24] [INFO]     Recommendation: Caution - weak positivity
+[02:11:24] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:26] [INFO]     ATE = -0.0017 [-0.0825, 0.1057]
+[02:11:26] [INFO]     Successful bootstraps: 150/150
+[02:11:26] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:27] [INFO]     p-value = 0.9733
+[02:11:27] [INFO]     Null distribution: μ=-0.0000, σ=0.0433
+[02:11:27] [INFO] 
+======================================================================
+[02:11:27] [INFO] [11/25] RYR2
+[02:11:27] [INFO] ======================================================================
+[02:11:27] [INFO]   
+[02:11:27] [INFO]   Mutations: 55 / 967 (5.7%)
+[02:11:27] [INFO]   Screening: p=0.0698, q=1.0000
+[02:11:27] [INFO]   [1/3] Propensity diagnostics...
+[02:11:27] [INFO]     Overlap: good
+[02:11:27] [INFO]     Truncated: 0.7%
+[02:11:27] [INFO]     Recommendation: Proceed
+[02:11:27] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:28] [INFO]     ATE = -0.1046 [-0.1445, -0.0551]
+[02:11:28] [INFO]     Successful bootstraps: 150/150
+[02:11:28] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:30] [INFO]     p-value = 0.0033
+[02:11:30] [INFO]     Null distribution: μ=-0.0021, σ=0.0382
+[02:11:30] [INFO] 
+======================================================================
+[02:11:30] [INFO] [12/25] SYNE1
+[02:11:30] [INFO] ======================================================================
+[02:11:30] [INFO]   
+[02:11:30] [INFO]   Mutations: 53 / 967 (5.5%)
+[02:11:30] [INFO]   Screening: p=0.8369, q=1.0000
+[02:11:30] [INFO]   [1/3] Propensity diagnostics...
+[02:11:30] [INFO]     Overlap: poor
+[02:11:30] [INFO]     Truncated: 39.9%
+[02:11:30] [INFO]     Recommendation: Caution - weak positivity
+[02:11:30] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:31] [INFO]     ATE = -0.0513 [-0.1186, 0.0243]
+[02:11:31] [INFO]     Successful bootstraps: 150/150
+[02:11:31] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:33] [INFO]     p-value = 0.2667
+[02:11:33] [INFO]     Null distribution: μ=-0.0001, σ=0.0451
+[02:11:33] [INFO] 
+======================================================================
+[02:11:33] [INFO] [13/25] PTEN
+[02:11:33] [INFO] ======================================================================
+[02:11:33] [INFO]   ★ KNOWN DRIVER
+[02:11:33] [INFO]   Mutations: 52 / 967 (5.4%)
+[02:11:33] [INFO]   Screening: p=0.4112, q=1.0000
+[02:11:33] [INFO]   [1/3] Propensity diagnostics...
+[02:11:33] [INFO]     Overlap: poor
+[02:11:33] [INFO]     Truncated: 44.4%
+[02:11:33] [INFO]     Recommendation: Caution - weak positivity
+[02:11:33] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:34] [INFO]     ATE = 0.0282 [-0.0578, 0.1365]
+[02:11:34] [INFO]     Successful bootstraps: 150/150
+[02:11:34] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:36] [INFO]     p-value = 0.5333
+[02:11:36] [INFO]     Null distribution: μ=0.0048, σ=0.0425
+[02:11:36] [INFO] 
+======================================================================
+[02:11:36] [INFO] [14/25] USH2A
+[02:11:36] [INFO] ======================================================================
+[02:11:36] [INFO]   
+[02:11:36] [INFO]   Mutations: 51 / 967 (5.3%)
+[02:11:36] [INFO]   Screening: p=0.6758, q=1.0000
+[02:11:36] [INFO]   [1/3] Propensity diagnostics...
+[02:11:36] [INFO]     Overlap: poor
+[02:11:36] [INFO]     Truncated: 48.7%
+[02:11:36] [INFO]     Recommendation: Caution - weak positivity
+[02:11:36] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:37] [INFO]     ATE = 0.0286 [-0.0597, 0.1360]
+[02:11:37] [INFO]     Successful bootstraps: 150/150
+[02:11:37] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:38] [INFO]     p-value = 0.5567
+[02:11:38] [INFO]     Null distribution: μ=0.0020, σ=0.0441
+[02:11:38] [INFO] 
+======================================================================
+[02:11:38] [INFO] [15/25] NCOR1
+[02:11:38] [INFO] ======================================================================
+[02:11:38] [INFO]   ★ KNOWN DRIVER
+[02:11:38] [INFO]   Mutations: 49 / 967 (5.1%)
+[02:11:38] [INFO]   Screening: p=0.6690, q=1.0000
+[02:11:38] [INFO]   [1/3] Propensity diagnostics...
+[02:11:38] [INFO]     Overlap: poor
+[02:11:38] [INFO]     Truncated: 46.7%
+[02:11:38] [INFO]     Recommendation: Caution - weak positivity
+[02:11:38] [INFO]   [2/3] Robust DR estimation (bootstrap n=150)...
+[02:11:40] [INFO]     ATE = -0.0269 [-0.1045, 0.0680]
+[02:11:40] [INFO]     Successful bootstraps: 150/150
+[02:11:40] [INFO]   [3/3] Permutation test (n=300)...
+[02:11:41] [INFO]     p-value = 0.5567
+[02:11:41] [INFO]     Null distribution: μ=0.0009, σ=0.0399
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [16/25] ZFHX4
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 47 / 967 (4.9%)
+[02:11:41] [INFO]   Screening: p=0.6661, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 58.1%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [17/25] SPTA1
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 46 / 967 (4.8%)
+[02:11:41] [INFO]   Screening: p=0.2693, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 77.8%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [18/25] DMD
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 44 / 967 (4.6%)
+[02:11:41] [INFO]   Screening: p=0.6541, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 79.4%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [19/25] MUC17
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 43 / 967 (4.4%)
+[02:11:41] [INFO]   Screening: p=1.0000, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 89.3%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [20/25] NEB
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 42 / 967 (4.3%)
+[02:11:41] [INFO]   Screening: p=1.0000, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 93.7%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [21/25] NF1
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   ★ KNOWN DRIVER
+[02:11:41] [INFO]   Mutations: 39 / 967 (4.0%)
+[02:11:41] [INFO]   Screening: p=0.6405, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 80.1%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [22/25] LRP2
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 39 / 967 (4.0%)
+[02:11:41] [INFO]   Screening: p=0.6405, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 99.5%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [23/25] FAT3
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 39 / 967 (4.0%)
+[02:11:41] [INFO]   Screening: p=0.8113, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 86.8%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [24/25] MAP2K4
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 39 / 967 (4.0%)
+[02:11:41] [INFO]   Screening: p=0.8113, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 100.0%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+======================================================================
+[02:11:41] [INFO] [25/25] DST
+[02:11:41] [INFO] ======================================================================
+[02:11:41] [INFO]   
+[02:11:41] [INFO]   Mutations: 38 / 967 (3.9%)
+[02:11:41] [INFO]   Screening: p=1.0000, q=1.0000
+[02:11:41] [INFO]   [1/3] Propensity diagnostics...
+[02:11:41] [INFO]     Overlap: very_poor
+[02:11:41] [INFO]     Truncated: 81.0%
+[02:11:41] [INFO]     Recommendation: Skip - insufficient overlap
+[02:11:41] [WARN]   ⚠️  Skipping due to very poor overlap
+[02:11:41] [INFO] 
+================================================================================
+[02:11:41] [INFO] FINAL FDR CORRECTION (Permutation p-values)
+[02:11:41] [INFO] ================================================================================
+
+[02:11:41] [INFO] Significant discoveries at FDR=0.05: 1 / 15
+[02:11:41] [INFO] 
+🎯 SIGNIFICANT GENES:
+[02:11:41] [INFO]     RYR2: ATE=-0.1046, q=0.0500
+[02:11:41] [INFO] 
+✓ Causal estimates saved: results/causal_discovery_v2/causal_estimates.csv
+[02:11:41] [INFO] 
+================================================================================
+[02:11:41] [INFO]   PHASE 4: GENERATE VISUALIZATIONS V2
+[02:11:41] [INFO] ================================================================================
+
+[02:11:41] [INFO] Creating visualizations...
+[02:11:42] [INFO]   ✓ Saved: figures/causal_v2/forest_plot_robust.png
+[02:12:04] [INFO]   ✓ Saved: figures/causal_v2/volcano_enhanced.png
+[02:12:05] [INFO]   ✓ Saved: figures/causal_v2/propensity_diagnostics.png
+[02:12:05] [INFO] 
+✓ All visualizations saved to figures/causal_v2/

@@ -1,0 +1,188 @@
+[01:37:41] [INFO] 
+================================================================================
+[01:37:41] [INFO]   DATA ARCHAEOLOGY PIPELINE
+[01:37:41] [INFO] ================================================================================
+
+[01:37:41] [INFO] Starting forensic inspection of datasets...
+[01:37:41] [INFO] 
+================================================================================
+[01:37:41] [INFO]   PHASE 1: CLINICAL DATA ARCHAEOLOGY
+[01:37:41] [INFO] ================================================================================
+
+[01:37:41] [INFO] Reading clinical.tsv (raw)...
+[01:37:41] [INFO] First 5 lines of clinical.tsv:
+[01:37:41] [INFO]   Line 0: project.project_id	cases.case_id	cases.consent_type	cases.days_to_consent	cases.days_to_lost_to_foll...
+[01:37:41] [INFO]   Line 1: TCGA-BRCA	001cef41-ff86-4d3f-a140-a647ac4b10a1	Informed Consent	-34	'--	Ductal and Lobular Neoplasms...
+[01:37:41] [INFO]   Line 2: TCGA-BRCA	001cef41-ff86-4d3f-a140-a647ac4b10a1	Informed Consent	-34	'--	Ductal and Lobular Neoplasms...
+[01:37:41] [INFO]   Line 3: TCGA-BRCA	001cef41-ff86-4d3f-a140-a647ac4b10a1	Informed Consent	-34	'--	Ductal and Lobular Neoplasms...
+[01:37:41] [INFO]   Line 4: TCGA-BRCA	0045349c-69d9-4306-a403-c9c1fa836644	Informed Consent	76	'--	Adenomas and Adenocarcinomas	...
+[01:37:41] [INFO] ✓ Read with skiprows=[1]: shape=(5545, 210)
+[01:37:41] [INFO] ✓ Read without skip: shape=(5546, 210)
+[01:37:41] [WARN] ⚠️  WARNING: Different shapes with/without skiprows!
+[01:37:41] [INFO]    Difference: 1 rows
+[01:37:41] [INFO] 
+📊 CLINICAL DATA OVERVIEW:
+[01:37:41] [INFO]   Shape: 5545 rows × 210 columns
+[01:37:41] [INFO]   Memory usage: 62.88 MB
+[01:37:41] [INFO] 
+📋 COLUMN INVENTORY:
+[01:37:41] [INFO]   Total columns: 210
+[01:37:41] [INFO] 
+  Column prefixes:
+[01:37:41] [INFO]     diagnoses: 132 columns
+[01:37:41] [INFO]     treatments: 46 columns
+[01:37:41] [INFO]     demographic: 22 columns
+[01:37:41] [INFO]     cases: 9 columns
+[01:37:41] [INFO]     project: 1 columns
+[01:37:41] [INFO] 
+🔑 KEY COLUMNS CHECK:
+[01:37:41] [INFO]   ✓ cases.case_id: 5545/5545 (100.0%) non-null
+[01:37:41] [INFO]   ✓ cases.submitter_id: 5545/5545 (100.0%) non-null
+[01:37:41] [INFO]   ✓ demographic.vital_status: 5545/5545 (100.0%) non-null
+[01:37:41] [INFO]   ✓ diagnoses.age_at_diagnosis: 5545/5545 (100.0%) non-null
+[01:37:41] [INFO]   ✓ diagnoses.ajcc_pathologic_stage: 5545/5545 (100.0%) non-null
+[01:37:41] [INFO]   ✓ diagnoses.primary_diagnosis: 5545/5545 (100.0%) non-null
+[01:37:41] [INFO] 
+🔍 DUPLICATE ANALYSIS:
+[01:37:41] [INFO]   Before dedup: 5545 rows
+[01:37:41] [INFO]   After dedup:  1098 rows
+[01:37:41] [INFO]   Removed: 4447 duplicates
+[01:37:41] [INFO] 
+💀 VITAL STATUS DISTRIBUTION:
+[01:37:41] [INFO]   Alive: 945 (86.1%)
+[01:37:41] [INFO]   Dead: 152 (13.8%)
+[01:37:41] [INFO]   '--: 1 (0.1%)
+[01:37:41] [INFO] 
+📅 AGE AT DIAGNOSIS:
+[01:37:41] [INFO]   Non-null: 1050 / 1098
+[01:37:41] [INFO]   Min: 9840
+[01:37:41] [INFO]   Median: 21558
+[01:37:41] [INFO]   Max: 32872
+[01:37:41] [WARN]   ⚠️  Age appears to be in DAYS (median=21558)
+[01:37:41] [INFO]   Converting to years: 59.0 years
+[01:37:41] [INFO] 
+🎚️  STAGE DISTRIBUTION:
+[01:37:41] [INFO]   Stage IIA: 334
+[01:37:41] [INFO]   Stage IIB: 235
+[01:37:41] [INFO]   Stage IIIA: 138
+[01:37:41] [INFO]   '--: 102
+[01:37:41] [INFO]   Stage IA: 85
+[01:37:41] [INFO]   Stage I: 83
+[01:37:41] [INFO]   Stage IIIC: 56
+[01:37:41] [INFO]   Stage IIIB: 23
+[01:37:41] [INFO]   Stage IV: 18
+[01:37:41] [INFO]   Stage II: 7
+[01:37:41] [INFO] 
+🏥 DIAGNOSIS TYPES:
+[01:37:41] [INFO]   Infiltrating duct carcinoma, NOS: 752
+[01:37:41] [INFO]   Lobular carcinoma, NOS: 186
+[01:37:41] [INFO]   Not Reported: 35
+[01:37:41] [INFO]   Infiltrating duct and lobular carcinoma: 28
+[01:37:41] [INFO]   Infiltrating duct mixed with other types of carcinoma: 18
+[01:37:41] [INFO]   Mucinous adenocarcinoma: 15
+[01:37:41] [INFO]   Metaplastic carcinoma, NOS: 13
+[01:37:41] [INFO]   Infiltrating lobular mixed with other types of carcinoma: 6
+[01:37:41] [INFO]   Intraductal papillary adenocarcinoma with invasion: 6
+[01:37:41] [INFO]   Medullary carcinoma, NOS: 5
+[01:37:41] [INFO] 
+✓ Saved deduplicated clinical data to reports/
+[01:37:41] [INFO] 
+================================================================================
+[01:37:41] [INFO]   PHASE 2: MUTATION MATRIX ARCHAEOLOGY
+[01:37:41] [INFO] ================================================================================
+
+[01:37:41] [INFO] Reading mutation matrix...
+[01:37:42] [INFO] 
+📊 MUTATION MATRIX OVERVIEW:
+[01:37:42] [INFO]   Shape: 967 patients × 15414 genes
+[01:37:43] [INFO]   Memory usage: 119.29 MB
+[01:37:43] [INFO]   Patients: 967
+[01:37:43] [INFO]   Genes: 15413
+[01:37:43] [INFO] 
+🧬 MUTATION FREQUENCY STATS:
+[01:37:43] [INFO]   Total mutations: 63603
+[01:37:43] [INFO]   Mean mutations per gene: 4.13
+[01:37:43] [INFO]   Median mutations per gene: 3
+[01:37:43] [INFO]   Max mutations (single gene): 331
+[01:37:43] [INFO] 
+🕳️  SPARSITY ANALYSIS:
+[01:37:43] [INFO]   Total cells: 14,904,371
+[01:37:43] [INFO]   Mutated cells: 63,603
+[01:37:43] [INFO]   Sparsity: 99.57%
+[01:37:43] [INFO] 
+🔝 TOP 20 MUTATED GENES:
+[01:37:43] [INFO]    1. TP53: 331 (34.2%)
+[01:37:43] [INFO]    2. PIK3CA: 328 (33.9%)
+[01:37:43] [INFO]    3. TTN: 167 (17.3%)
+[01:37:43] [INFO]    4. CDH1: 128 (13.2%)
+[01:37:43] [INFO]    5. GATA3: 125 (12.9%)
+[01:37:43] [INFO]    6. MUC16: 99 (10.2%)
+[01:37:43] [INFO]    7. KMT2C: 85 (8.8%)
+[01:37:43] [INFO]    8. MAP3K1: 82 (8.5%)
+[01:37:43] [INFO]    9. HMCN1: 58 (6.0%)
+[01:37:43] [INFO]   10. FLG: 56 (5.8%)
+[01:37:43] [INFO]   11. RYR2: 55 (5.7%)
+[01:37:43] [INFO]   12. SYNE1: 53 (5.5%)
+[01:37:43] [INFO]   13. PTEN: 52 (5.4%)
+[01:37:43] [INFO]   14. USH2A: 51 (5.3%)
+[01:37:43] [INFO]   15. NCOR1: 49 (5.1%)
+[01:37:43] [INFO]   16. ZFHX4: 47 (4.9%)
+[01:37:43] [INFO]   17. SPTA1: 46 (4.8%)
+[01:37:43] [INFO]   18. DMD: 44 (4.6%)
+[01:37:43] [INFO]   19. MUC17: 43 (4.4%)
+[01:37:43] [INFO]   20. NEB: 42 (4.3%)
+[01:37:43] [INFO] 
+🦄 RARE MUTATION DISTRIBUTION:
+[01:37:43] [INFO]   Genes with ≤ 1 mutations:  3577 (23.2%)
+[01:37:43] [INFO]   Genes with ≤ 2 mutations:  6758 (43.8%)
+[01:37:43] [INFO]   Genes with ≤ 5 mutations: 12010 (77.9%)
+[01:37:43] [INFO]   Genes with ≤10 mutations: 14570 (94.5%)
+[01:37:43] [INFO]   Genes with ≤20 mutations: 15268 (99.1%)
+[01:37:43] [INFO]   Genes with ≤50 mutations: 15399 (99.9%)
+[01:37:43] [INFO] 
+👤 PATIENT MUTATION BURDEN:
+[01:37:43] [INFO]   Min: 1
+[01:37:43] [INFO]   25th percentile: 22
+[01:37:43] [INFO]   Median: 33
+[01:37:43] [INFO]   75th percentile: 59
+[01:37:43] [INFO]   Max: 3621
+[01:37:43] [INFO] 
+🚨 DATA QUALITY CHECKS:
+[01:37:43] [INFO]   ✓ No all-zero genes
+[01:37:43] [INFO]   ✓ No all-one genes
+[01:37:43] [INFO]   ✓ All checked genes are binary (0/1)
+[01:37:43] [INFO]   ✓ No missing patient IDs
+[01:37:43] [INFO] 
+================================================================================
+[01:37:43] [INFO]   PHASE 3: CROSS-DATASET VALIDATION
+[01:37:43] [INFO] ================================================================================
+
+[01:37:43] [INFO] 📇 PATIENT ID OVERLAP:
+[01:37:43] [INFO]   Clinical IDs: 1098
+[01:37:43] [INFO]   Mutation IDs: 967
+[01:37:43] [INFO] 
+  Overlap: 967 patients
+[01:37:43] [INFO]   Clinical only: 131 patients
+[01:37:43] [INFO]   Mutation only: 0 patients
+[01:37:43] [WARN] 
+  ⚠️  131 patients in clinical but not in mutations
+[01:37:43] [INFO]      Sample IDs: ['TCGA-AO-A1KO', 'TCGA-A2-A3XX', 'TCGA-AC-A3EH', 'TCGA-JL-A3YX', 'TCGA-E9-A5UP']
+[01:37:43] [INFO] 
+💥 EXPECTED DATA LOSS (inner join):
+[01:37:43] [INFO]   Merged dataset will have: 967 patients
+[01:37:43] [INFO]   Lost from clinical: 131 (11.9%)
+[01:37:43] [INFO]   Lost from mutation: 0 (0.0%)
+[01:37:43] [INFO] 
+================================================================================
+[01:37:43] [INFO]   PHASE 4: VISUALIZATION GENERATION
+[01:37:43] [INFO] ================================================================================
+
+[01:37:43] [INFO] Generating diagnostic plots...
+[01:37:44] [INFO]   ✓ Saved clinical_structure.png
+[01:37:44] [INFO]   ✓ Saved mutation_sparsity.png
+[01:37:44] [INFO] 
+================================================================================
+[01:37:44] [INFO]   PHASE 5: QUALITY REPORT GENERATION
+[01:37:44] [INFO] ================================================================================
+
+[01:37:44] [INFO] ✓ Saved quality flags: reports/data_quality_flags.json

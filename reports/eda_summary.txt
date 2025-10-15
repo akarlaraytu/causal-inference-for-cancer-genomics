@@ -1,0 +1,185 @@
+[01:55:08] [INFO] 
+================================================================================
+[01:55:08] [INFO]   EXPLORATORY DATA ANALYSIS PIPELINE
+[01:55:08] [INFO] ================================================================================
+
+[01:55:08] [INFO] 🔍 Starting EDA - Foundation for causal discovery...
+[01:55:08] [INFO] 
+================================================================================
+[01:55:08] [INFO]   PHASE 1: LOAD DATA
+[01:55:08] [INFO] ================================================================================
+
+[01:55:08] [INFO] Loading merged dataset: results/merged_dataset.csv
+[01:55:09] [INFO]   Shape: (967, 8667)
+[01:55:09] [INFO]   Patients: 967
+[01:55:09] [INFO]   Features: 8667
+[01:55:09] [INFO]   Clinical features: 12
+[01:55:09] [INFO]   Gene features: 8655
+[01:55:09] [INFO] 
+  Outcome distribution:
+[01:55:09] [INFO]     Alive: 834 (86.2%)
+[01:55:09] [INFO]     Dead: 133 (13.8%)
+[01:55:09] [INFO] 
+================================================================================
+[01:55:09] [INFO]   PHASE 2: CLINICAL FEATURES VS OUTCOME
+[01:55:09] [INFO] ================================================================================
+
+[01:55:09] [INFO] 📅 AGE vs OUTCOME
+[01:55:09] [INFO]   Alive: mean=58.5, median=58.6
+[01:55:09] [INFO]   Dead:  mean=61.6, median=61.8
+[01:55:09] [INFO]   T-test: t=-2.426, p=0.0155
+[01:55:09] [INFO]   ✓ Significant difference (p<0.05)
+[01:55:09] [INFO] 
+🎚️  STAGE vs OUTCOME
+[01:55:09] [INFO]   Mortality rate by stage:
+[01:55:09] [INFO]     I: 8.3%
+[01:55:09] [INFO]     II: 8.5%
+[01:55:09] [INFO]     III: 12.0%
+[01:55:09] [INFO]     IV: 76.5%
+[01:55:09] [INFO]     Unknown: 43.2%
+[01:55:09] [INFO]   Chi-square: χ²=141.823, p=0.0000, dof=4
+[01:55:09] [INFO]   ✓ Significant association (p<0.05)
+[01:55:09] [INFO] 
+🏥 DIAGNOSIS vs OUTCOME (top types)
+[01:55:09] [INFO]   Mortality rate by diagnosis:
+[01:55:09] [INFO]     Infiltrating duct and lobular carcinoma: 12.0% (3/25)
+[01:55:09] [INFO]     Infiltrating duct carcinoma, NOS: 13.0% (90/694)
+[01:55:09] [INFO]     Lobular carcinoma, NOS: 11.5% (16/139)
+[01:55:09] [INFO]     Not Reported: 17.2% (5/29)
+[01:55:09] [INFO]     Other: 30.8% (8/26)
+[01:55:09] [INFO] 
+================================================================================
+[01:55:09] [INFO]   PHASE 3: TOP 20 MUTATED GENES ANALYSIS
+[01:55:09] [INFO] ================================================================================
+
+[01:55:09] [INFO] 🔝 Top 20 mutated genes:
+[01:55:09] [INFO]    1. TP53: 331 (34.2%)
+[01:55:09] [INFO]    2. PIK3CA: 328 (33.9%)
+[01:55:09] [INFO]    3. TTN: 167 (17.3%)
+[01:55:09] [INFO]    4. CDH1: 128 (13.2%)
+[01:55:09] [INFO]    5. GATA3: 125 (12.9%)
+[01:55:09] [INFO]    6. MUC16: 99 (10.2%)
+[01:55:09] [INFO]    7. KMT2C: 85 (8.8%)
+[01:55:09] [INFO]    8. MAP3K1: 82 (8.5%)
+[01:55:09] [INFO]    9. HMCN1: 58 (6.0%)
+[01:55:09] [INFO]   10. FLG: 56 (5.8%)
+[01:55:09] [INFO]   11. RYR2: 55 (5.7%)
+[01:55:09] [INFO]   12. SYNE1: 53 (5.5%)
+[01:55:09] [INFO]   13. PTEN: 52 (5.4%)
+[01:55:09] [INFO]   14. USH2A: 51 (5.3%)
+[01:55:09] [INFO]   15. NCOR1: 49 (5.1%)
+[01:55:09] [INFO]   16. ZFHX4: 47 (4.9%)
+[01:55:09] [INFO]   17. SPTA1: 46 (4.8%)
+[01:55:09] [INFO]   18. DMD: 44 (4.6%)
+[01:55:09] [INFO]   19. MUC17: 43 (4.4%)
+[01:55:09] [INFO]   20. NEB: 42 (4.3%)
+[01:55:09] [INFO] 
+🎯 Association with outcome (Fisher exact test):
+[01:55:09] [INFO]   TP53:
+[01:55:09] [INFO]     Mortality (mutated): 16.0% (53/331)
+[01:55:09] [INFO]     Mortality (non-mutated): 12.6% (80/636)
+[01:55:09] [INFO]     Odds ratio: 1.325, p=0.1415
+[01:55:09] [INFO]   PIK3CA:
+[01:55:09] [INFO]     Mortality (mutated): 13.4% (44/328)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.9% (89/639)
+[01:55:09] [INFO]     Odds ratio: 0.957, p=0.9215
+[01:55:09] [INFO]   TTN:
+[01:55:09] [INFO]     Mortality (mutated): 16.8% (28/167)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.1% (105/800)
+[01:55:09] [INFO]     Odds ratio: 1.333, p=0.2177
+[01:55:09] [INFO]   CDH1:
+[01:55:09] [INFO]     Mortality (mutated): 10.9% (14/128)
+[01:55:09] [INFO]     Mortality (non-mutated): 14.2% (119/839)
+[01:55:09] [INFO]     Odds ratio: 0.743, p=0.4079
+[01:55:09] [INFO]   GATA3:
+[01:55:09] [INFO]     Mortality (mutated): 15.2% (19/125)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.5% (114/842)
+[01:55:09] [INFO]     Odds ratio: 1.145, p=0.5803
+[01:55:09] [INFO]   MUC16:
+[01:55:09] [INFO]     Mortality (mutated): 16.2% (16/99)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.5% (117/868)
+[01:55:09] [INFO]     Odds ratio: 1.237, p=0.4433
+[01:55:09] [INFO]   KMT2C:
+[01:55:09] [INFO]     Mortality (mutated): 21.2% (18/85)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.0% (115/882)
+[01:55:09] [INFO]     Odds ratio: 1.792, p=0.0468
+[01:55:09] [INFO]   MAP3K1:
+[01:55:09] [INFO]     Mortality (mutated): 12.2% (10/82)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.9% (123/885)
+[01:55:09] [INFO]     Odds ratio: 0.860, p=0.8666
+[01:55:09] [INFO]   HMCN1:
+[01:55:09] [INFO]     Mortality (mutated): 10.3% (6/58)
+[01:55:09] [INFO]     Mortality (non-mutated): 14.0% (127/909)
+[01:55:09] [INFO]     Odds ratio: 0.710, p=0.5565
+[01:55:09] [INFO]   FLG:
+[01:55:09] [INFO]     Mortality (mutated): 14.3% (8/56)
+[01:55:09] [INFO]     Mortality (non-mutated): 13.7% (125/911)
+[01:55:09] [INFO]     Odds ratio: 1.048, p=0.8428
+[01:55:09] [INFO] 
+================================================================================
+[01:55:09] [INFO]   PHASE 4: HYPERMUTATOR DEEP DIVE
+[01:55:09] [INFO] ================================================================================
+
+[01:55:09] [INFO] 📊 Hypermutator vs Normal comparison:
+[01:55:09] [INFO]   Hypermutators: 5
+[01:55:09] [INFO]   Normal: 962
+[01:55:09] [INFO] 
+  Mutation burden:
+[01:55:09] [INFO]     Hypermutators: mean=1603, median=886
+[01:55:09] [INFO]     Normal: mean=47, median=28
+[01:55:09] [INFO]     Fold difference: 33.8x
+[01:55:09] [INFO] 
+  Outcome:
+[01:55:09] [INFO]     Hypermutator mortality: 20.0%
+[01:55:09] [INFO]     Normal mortality: 13.7%
+[01:55:09] [INFO]     Odds ratio: 1.572, p=0.5236
+[01:55:09] [INFO] 
+  Clinical characteristics:
+[01:55:09] [INFO]     age: hyper=80.2, normal=58.8
+[01:55:09] [INFO]     stage (hypermutators):
+[01:55:09] [INFO]       II: 80.0%
+[01:55:09] [INFO]       I: 20.0%
+[01:55:09] [INFO] 
+================================================================================
+[01:55:09] [INFO]   PHASE 5: CONFOUNDING STRUCTURE
+[01:55:09] [INFO] ================================================================================
+
+[01:55:09] [INFO] 🔗 Checking confounder relationships...
+[01:55:09] [INFO] 
+  Age vs Stage:
+[01:55:09] [INFO]     I: mean age = 60.1
+[01:55:09] [INFO]     II: mean age = 58.4
+[01:55:09] [INFO]     IV: mean age = 60.6
+[01:55:09] [INFO]     Unknown: mean age = 59.8
+[01:55:09] [INFO]     III: mean age = 59.0
+[01:55:09] [INFO]   ANOVA: F=0.635, p=0.6379
+[01:55:09] [INFO] 
+  Stage vs Diagnosis (top 3):
+[01:55:09] [INFO]     Infiltrating duct carcinoma, NOS:
+[01:55:09] [INFO]       II: 55.8%
+[01:55:09] [INFO]       III: 18.4%
+[01:55:09] [INFO]       I: 18.0%
+[01:55:09] [INFO]     Lobular carcinoma, NOS:
+[01:55:09] [INFO]       II: 57.6%
+[01:55:09] [INFO]       III: 24.5%
+[01:55:09] [INFO]       I: 10.1%
+[01:55:09] [INFO]     Not Reported:
+[01:55:09] [INFO]       Unknown: 93.1%
+[01:55:09] [INFO]       I: 3.4%
+[01:55:09] [INFO]       II: 3.4%
+[01:55:09] [INFO] 
+================================================================================
+[01:55:09] [INFO]   PHASE 6: GENERATE EDA VISUALIZATIONS
+[01:55:09] [INFO] ================================================================================
+
+[01:55:09] [INFO] Creating EDA plots...
+[01:55:10] [INFO]   ✓ Saved: figures/eda/clinical_outcome_analysis.png
+[01:55:11] [INFO]   ✓ Saved: figures/eda/top_genes_heatmap.png
+[01:55:11] [INFO] 
+✓ All EDA visualizations saved to figures/eda/
+[01:55:11] [INFO] 
+================================================================================
+[01:55:11] [INFO]   PHASE 7: SAVE OUTPUTS
+[01:55:11] [INFO] ================================================================================
+
+[01:55:11] [INFO] ✓ Statistics saved: results/eda_statistics.json

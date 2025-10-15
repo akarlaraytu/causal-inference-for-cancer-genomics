@@ -1,0 +1,124 @@
+{
+  "timestamp": "2025-10-13T01:55:11.181731",
+  "dataset": {
+    "n_patients": 967,
+    "n_genes": 8655,
+    "n_dead": 133,
+    "n_alive": 834
+  },
+  "clinical_vs_outcome": {
+    "age_vs_outcome": {
+      "alive_mean": 58.545010266940444,
+      "dead_mean": 61.551057657833844,
+      "t_statistic": -2.425967389536872,
+      "p_value": 0.015458184083805044
+    },
+    "stage_vs_outcome": {
+      "chi2_statistic": 141.82322828485434,
+      "p_value": 1.148884346445997e-29,
+      "degrees_of_freedom": 4
+    },
+    "diagnosis_types": {
+      "Infiltrating duct and lobular carcinoma": 12.0,
+      "Infiltrating duct carcinoma, NOS": 12.968299711815561,
+      "Lobular carcinoma, NOS": 11.510791366906474,
+      "Not Reported": 17.24137931034483,
+      "Other": 30.76923076923077
+    }
+  },
+  "hypermutator_analysis": {
+    "n_hypermutators": 5,
+    "hyper_mortality_pct": 20.0,
+    "normal_mortality_pct": 13.721413721413722,
+    "odds_ratio": 1.571969696969697,
+    "p_value": 0.5235917653165231
+  },
+  "confounding_analysis": {
+    "age_vs_stage": {
+      "f_statistic": 0.6345687634278616,
+      "p_value": 0.6379276300034136
+    }
+  },
+  "top_gene_associations": [
+    {
+      "gene": "TP53",
+      "mut_count": 331,
+      "mortality_mut": 16.012084592145015,
+      "mortality_non": 12.578616352201259,
+      "odds_ratio": 1.325,
+      "p_value": 0.14152182926419776
+    },
+    {
+      "gene": "PIK3CA",
+      "mut_count": 328,
+      "mortality_mut": 13.414634146341463,
+      "mortality_non": 13.928012519561815,
+      "odds_ratio": 0.9574299730970091,
+      "p_value": 0.9214755212155165
+    },
+    {
+      "gene": "TTN",
+      "mut_count": 167,
+      "mortality_mut": 16.766467065868262,
+      "mortality_non": 13.125,
+      "odds_ratio": 1.3333333333333333,
+      "p_value": 0.217691487110111
+    },
+    {
+      "gene": "CDH1",
+      "mut_count": 128,
+      "mortality_mut": 10.9375,
+      "mortality_non": 14.183551847437425,
+      "odds_ratio": 0.7430340557275542,
+      "p_value": 0.4078865317562078
+    },
+    {
+      "gene": "GATA3",
+      "mut_count": 125,
+      "mortality_mut": 15.2,
+      "mortality_non": 13.539192399049881,
+      "odds_ratio": 1.1446540880503144,
+      "p_value": 0.5802557010235685
+    },
+    {
+      "gene": "MUC16",
+      "mut_count": 99,
+      "mortality_mut": 16.161616161616163,
+      "mortality_non": 13.47926267281106,
+      "odds_ratio": 1.2373596951910204,
+      "p_value": 0.4433469234667991
+    },
+    {
+      "gene": "KMT2C",
+      "mut_count": 85,
+      "mortality_mut": 21.176470588235293,
+      "mortality_non": 13.038548752834467,
+      "odds_ratio": 1.7918234912394548,
+      "p_value": 0.04683210137888916
+    },
+    {
+      "gene": "MAP3K1",
+      "mut_count": 82,
+      "mortality_mut": 12.195121951219512,
+      "mortality_non": 13.898305084745763,
+      "odds_ratio": 0.8604336043360433,
+      "p_value": 0.8666373385201878
+    },
+    {
+      "gene": "HMCN1",
+      "mut_count": 58,
+      "mortality_mut": 10.344827586206897,
+      "mortality_non": 13.971397139713972,
+      "odds_ratio": 0.7104784978800727,
+      "p_value": 0.5565231805506272
+    },
+    {
+      "gene": "FLG",
+      "mut_count": 56,
+      "mortality_mut": 14.285714285714286,
+      "mortality_non": 13.721185510428102,
+      "odds_ratio": 1.048,
+      "p_value": 0.8427905171006309
+    }
+  ]
+}

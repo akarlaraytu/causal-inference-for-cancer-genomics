@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-10-13T01:37:44.897614",
+  "clinical": {
+    "n_patients": 1098,
+    "n_columns": 210,
+    "vital_status_available": true,
+    "age_available": true,
+    "stage_available": true
+  },
+  "mutation": {
+    "n_patients": 967,
+    "n_genes": 15413,
+    "sparsity_pct": 99.57325941497295,
+    "genes_with_zero_muts": 0,
+    "genes_with_one_mut": 3577
+  },
+  "overlap": {
+    "overlap": 967,
+    "clinical_only": 131,
+    "mutation_only": 0
+  },
+  "warnings": [],
+  "errors": []
+}

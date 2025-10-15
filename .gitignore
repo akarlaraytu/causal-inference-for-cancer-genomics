@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.venv/
+
+# IDE/Editor klasörleri
+.idea/
+.vscode/

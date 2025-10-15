@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-10-13T01:37:32.049862",
+  "processing": {
+    "maf_files_processed": 991,
+    "maf_files_failed": 0,
+    "maf_files_empty": 1,
+    "total_mutations_raw": 89568
+  },
+  "matrix": {
+    "n_patients": 967,
+    "n_genes": 15413,
+    "total_mutations": 63603,
+    "sparsity_pct": 99.57325941497295
+  },
+  "gene_stats": {
+    "mean_mutations_per_gene": 4.1265814572114445,
+    "median_mutations_per_gene": 3.0,
+    "max_mutations": 331,
+    "genes_with_zero_muts": 0,
+    "genes_with_one_mut": 3577
+  },
+  "patient_stats": {
+    "mean_mutations_per_patient": 65.77352637021717,
+    "median_mutations_per_patient": 33.0,
+    "max_mutations": 3621,
+    "hypermutator_patients": [
+      "TCGA-A8-A09Z",
+      "TCGA-AC-A23H",
+      "TCGA-AN-A046",
+      "TCGA-AN-A0AK",
+      "TCGA-BH-A18G"
+    ]
+  },
+  "top_10_genes": {
+    "TP53": 331,
+    "PIK3CA": 328,
+    "TTN": 167,
+    "CDH1": 128,
+    "GATA3": 125,
+    "MUC16": 99,
+    "KMT2C": 85,
+    "MAP3K1": 82,
+    "HMCN1": 58,
+    "FLG": 56
+  },
+  "variant_type_breakdown": {
+    "Missense_Mutation": 56027,
+    "Silent": 19730,
+    "Nonsense_Mutation": 4942,
+    "Frame_Shift_Del": 3291,
+    "Splice_Site": 1539,
+    "Frame_Shift_Ins": 928,
+    "Intron": 737,
+    "In_Frame_Del": 624,
+    "Splice_Region": 524,
+    "RNA": 447
+  }
+}

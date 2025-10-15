@@ -1,0 +1,167 @@
+[01:49:46] [INFO] 
+================================================================================
+[01:49:46] [INFO]   DATA CLEANING PIPELINE
+[01:49:46] [INFO] ================================================================================
+
+[01:49:46] [INFO] 🚀 Starting rigorous data cleaning...
+[01:49:46] [INFO] ✓ Loaded QC flags from archaeology
+[01:49:46] [INFO] 
+================================================================================
+[01:49:46] [INFO]   PHASE 1: CLINICAL DATA CLEANING
+[01:49:46] [INFO] ================================================================================
+
+[01:49:46] [INFO] Loading raw clinical data...
+[01:49:46] [INFO]   Raw shape: (5545, 210)
+[01:49:47] [INFO]   Removed 4447 duplicate case_ids
+[01:49:47] [INFO] 
+📋 Column mapping...
+[01:49:47] [INFO]   Mapped 8 columns
+[01:49:47] [INFO] 
+📅 Age cleaning...
+[01:49:47] [INFO]   Age in days detected (median=21558)
+[01:49:47] [INFO]   Converted to years (new median=59.0)
+[01:49:47] [INFO]   Age range: 26.9 - 90.0
+[01:49:47] [INFO]   Age missing: 48 / 1098
+[01:49:47] [INFO] 
+💀 Vital status cleaning...
+[01:49:47] [INFO]   Vital status distribution:
+[01:49:47] [INFO]     Alive: 945 (86.1%)
+[01:49:47] [INFO]     Dead: 152 (13.8%)
+[01:49:47] [WARN]   ⚠️  1 patients with unknown vital status
+[01:49:47] [INFO] 
+🎚️  Stage harmonization...
+[01:49:47] [INFO]   Stage distribution:
+[01:49:47] [INFO]     II: 576 (52.5%)
+[01:49:47] [INFO]     III: 217 (19.8%)
+[01:49:47] [INFO]     I: 174 (15.8%)
+[01:49:47] [INFO]     Unknown: 113 (10.3%)
+[01:49:47] [INFO]     IV: 18 (1.6%)
+[01:49:47] [INFO] 
+🏥 Diagnosis harmonization...
+[01:49:47] [INFO]   Kept top 10 diagnosis types, grouped rest as 'Other'
+[01:49:47] [INFO]   Diagnosis distribution:
+[01:49:47] [INFO]     Infiltrating duct carcinoma, NOS: 752 (68.5%)
+[01:49:47] [INFO]     Lobular carcinoma, NOS: 186 (16.9%)
+[01:49:47] [INFO]     Not Reported: 35 (3.2%)
+[01:49:47] [INFO]     Other: 34 (3.1%)
+[01:49:47] [INFO]     Infiltrating duct and lobular carcinoma: 28 (2.6%)
+[01:49:47] [INFO]     ... (6 more categories)
+[01:49:47] [INFO] 
+🔍 Missing data summary:
+[01:49:47] [INFO]   patient_id: 0 missing (0.0%)
+[01:49:47] [INFO]   age: 48 missing (4.4%)
+[01:49:47] [INFO]   stage: 0 missing (0.0%)
+[01:49:47] [INFO]   diagnosis: 0 missing (0.0%)
+[01:49:47] [INFO]   IS_DEAD: 1 missing (0.1%)
+[01:49:47] [INFO] 
+🗑️  Dropping rows with missing critical fields...
+[01:49:47] [INFO]   Dropped 1 rows (0.1%)
+[01:49:47] [INFO] 
+✓ Saved cleaned clinical data: results/clinical_cleaned.csv
+[01:49:47] [INFO]   Final shape: (1097, 11)
+[01:49:47] [INFO] 
+================================================================================
+[01:49:47] [INFO]   PHASE 2: MUTATION DATA CLEANING
+[01:49:47] [INFO] ================================================================================
+
+[01:49:47] [INFO] Loading raw mutation matrix...
+[01:49:48] [INFO]   Raw shape: (967, 15414)
+[01:49:48] [INFO]   Genes: 15413
+[01:49:48] [INFO]   Patients: 967
+[01:49:48] [INFO] 
+🦄 Filtering ultra-rare genes (< 3 mutations)...
+[01:49:48] [INFO]   Genes before filtering: 15413
+[01:49:48] [INFO]   Ultra-rare genes (< 3): 6758
+[01:49:48] [INFO]   Genes after filtering: 8655
+[01:49:48] [INFO]   Removed: 6758 (43.8%)
+[01:49:48] [INFO] 
+🔍 Identifying hypermutator patients...
+[01:49:48] [INFO]   Mean mutation burden: 55.50
+[01:49:48] [INFO]   Std deviation: 147.17
+[01:49:48] [INFO]   Threshold (>5σ): 791
+[01:49:48] [WARN] 
+  ⚠️  5 hypermutator patient(s) detected:
+[01:49:48] [INFO]     TCGA-A8-A09Z: 800 mutations (Z=5.06)
+[01:49:48] [INFO]     TCGA-AC-A23H: 2526 mutations (Z=16.79)
+[01:49:48] [INFO]     TCGA-AN-A046: 2942 mutations (Z=19.61)
+[01:49:48] [INFO]     TCGA-AN-A0AK: 863 mutations (Z=5.49)
+[01:49:48] [INFO]     TCGA-BH-A18G: 886 mutations (Z=5.64)
+[01:49:48] [INFO] 
+  These patients will be FLAGGED but NOT removed.
+[01:49:48] [INFO]   They should be handled in sensitivity analysis.
+[01:49:48] [INFO] 
+📊 Patient mutation burden distribution:
+[01:49:48] [INFO]   Min: 1
+[01:49:48] [INFO]   25th percentile: 18
+[01:49:48] [INFO]   Median: 28
+[01:49:48] [INFO]   75th percentile: 50
+[01:49:48] [INFO]   Max: 2942
+[01:49:50] [INFO] 
+✓ Saved cleaned mutation data: results/mutation_cleaned.csv
+[01:49:50] [INFO]   Final shape: (967, 8657)
+[01:49:50] [INFO] 
+================================================================================
+[01:49:50] [INFO]   PHASE 3: MERGE DATASETS
+[01:49:50] [INFO] ================================================================================
+
+[01:49:50] [INFO] Merging clinical and mutation data on patient_id...
+[01:49:50] [INFO] 
+📇 Patient ID overlap:
+[01:49:50] [INFO]   Clinical IDs: 1097
+[01:49:50] [INFO]   Mutation IDs: 967
+[01:49:50] [INFO]   Overlap: 967
+[01:49:50] [INFO]   Clinical only: 130
+[01:49:50] [INFO]   Mutation only: 0
+[01:49:50] [INFO] 
+💥 Merge results:
+[01:49:50] [INFO]   Merged dataset: 967 patients
+[01:49:50] [INFO]   Lost from clinical: 130 (11.9%)
+[01:49:50] [INFO]   Lost from mutation: 0 (0.0%)
+[01:49:50] [INFO] 
+🔍 Final data quality checks:
+[01:49:50] [INFO]   ✓ patient_id: no missing values
+[01:49:50] [WARN]   ⚠️  age: 41 missing (4.2%)
+[01:49:50] [INFO]   ✓ stage: no missing values
+[01:49:50] [INFO]   ✓ diagnosis: no missing values
+[01:49:50] [INFO]   ✓ IS_DEAD: no missing values
+[01:49:50] [INFO] 
+💀 Final outcome distribution:
+[01:49:50] [INFO]   Alive: 834 (86.2%)
+[01:49:50] [INFO]   Dead: 133 (13.8%)
+[01:49:50] [INFO] 
+🔬 Hypermutators in final dataset: 5
+[01:49:52] [INFO] 
+✓ Saved merged dataset: results/merged_dataset.csv
+[01:49:52] [INFO]   Final shape: (967, 8667)
+[01:49:52] [INFO] 
+================================================================================
+[01:49:52] [INFO]   PHASE 4: GENERATE CLEANING VISUALIZATIONS
+[01:49:52] [INFO] ================================================================================
+
+[01:49:52] [INFO] Generating diagnostic plots...
+[01:49:53] [INFO] ✓ Cleaning visualizations saved: figures/cleaning/cleaning_summary.png
+[01:49:53] [INFO] 
+================================================================================
+[01:49:53] [INFO]   PHASE 5: SAVE CLEANING REPORT
+[01:49:53] [INFO] ================================================================================
+
+[01:49:53] [INFO] 
+================================================================================
+[01:49:53] [INFO]   CLEANING SUMMARY
+[01:49:53] [INFO] ================================================================================
+[01:49:53] [INFO] 
+Clinical data:
+[01:49:54] [INFO]   Raw patients: 5545
+[01:49:54] [INFO]   After deduplication: (see archaeology report)
+[01:49:54] [INFO]   After cleaning: 1097
+[01:49:54] [INFO] 
+Mutation data:
+[01:49:55] [INFO]   Raw genes: 15413
+[01:49:55] [INFO]   After filtering: 8655
+[01:49:55] [INFO]   Hypermutators flagged: 5
+[01:49:55] [INFO] 
+Merged dataset:
+[01:49:55] [INFO]   Final patients: 967
+[01:49:55] [INFO]   Final genes: 8655
+[01:49:55] [INFO]   Alive: 834
+[01:49:55] [INFO]   Dead: 133

@@ -1,0 +1,86 @@
+[02:33:36] [INFO] 
+================================================================================
+[02:33:36] [INFO]   RYR2 MUTATION PATTERN DEEP DIVE
+[02:33:36] [INFO] ================================================================================
+
+[02:33:36] [INFO] 
+================================================================================
+[02:33:36] [INFO]   PHASE 1: EXTRACT RYR2 MUTATIONS FROM MAF FILES
+[02:33:36] [INFO] ================================================================================
+
+[02:33:36] [INFO] Found 992 MAF files
+[02:33:42] [INFO] Total RYR2 mutations: 101
+[02:33:42] [INFO] Unique patients with RYR2 mutations: 79
+[02:33:42] [INFO] 
+================================================================================
+[02:33:42] [INFO]   PHASE 2: MUTATION TYPE DISTRIBUTION
+[02:33:42] [INFO] ================================================================================
+
+[02:33:42] [INFO] Variant classification distribution:
+[02:33:42] [INFO]   Missense_Mutation: 66 (65.3%)
+[02:33:42] [INFO]   Silent: 30 (29.7%)
+[02:33:42] [INFO]   Nonsense_Mutation: 2 (2.0%)
+[02:33:42] [INFO]   Splice_Site: 1 (1.0%)
+[02:33:42] [INFO]   Splice_Region: 1 (1.0%)
+[02:33:42] [INFO]   Intron: 1 (1.0%)
+[02:33:42] [INFO] 
+Variant type distribution:
+[02:33:42] [INFO]   SNP: 100 (99.0%)
+[02:33:42] [INFO]   DEL: 1 (1.0%)
+[02:33:42] [INFO] 
+✓ Saved: figures/deep_validation/ryr2/ryr2_mutation_types.png
+[02:33:42] [INFO] 
+================================================================================
+[02:33:42] [INFO]   PHASE 3: HOTSPOT ANALYSIS - Position Distribution
+[02:33:42] [INFO] ================================================================================
+
+[02:33:42] [INFO] Total mutation positions: 99
+[02:33:42] [INFO] Recurrent positions (>1 patient): 2
+[02:33:42] [INFO] Unique positions: 97
+[02:33:42] [INFO] 
+Top 10 recurrent positions:
+[02:33:42] [INFO]    1. Position 237593496: 2 mutations (2.0%)
+[02:33:42] [INFO]    2. Position 237511755: 2 mutations (2.0%)
+[02:33:43] [INFO] 
+✓ Saved: figures/deep_validation/ryr2/ryr2_hotspot_analysis.png
+[02:33:43] [INFO] 
+Hotspot metrics:
+[02:33:43] [INFO]   Max recurrence: 2 patients at same position
+[02:33:43] [INFO]   Hotspot score: 4.0% (mutations at recurrent sites)
+[02:33:43] [INFO] 
+================================================================================
+[02:33:43] [INFO]   PHASE 4: PROTEIN DOMAIN DISTRIBUTION
+[02:33:43] [INFO] ================================================================================
+
+[02:33:43] [INFO] Extracted 100 amino acid positions
+[02:33:43] [INFO] 
+Mutations per protein domain:
+[02:33:43] [INFO]   N-terminal (1-600): 20 (20.0%)
+[02:33:43] [INFO]   SPRY1 (600-800): 7 (7.0%)
+[02:33:43] [INFO]   SPRY2 (800-1000): 8 (8.0%)
+[02:33:43] [INFO]   SPRY3 (1000-1200): 1 (1.0%)
+[02:33:43] [INFO]   RIH (1200-1400): 2 (2.0%)
+[02:33:43] [INFO]   Central (1400-4000): 39 (39.0%)
+[02:33:43] [INFO]   Transmembrane (4000-4500): 14 (14.0%)
+[02:33:43] [INFO]   C-terminal (4500-4967): 9 (9.0%)
+[02:33:43] [INFO] 
+✓ Saved: figures/deep_validation/ryr2/ryr2_protein_domains.png
+[02:33:43] [INFO] 
+================================================================================
+[02:33:43] [INFO]   FINAL VERDICT - MUTATION PATTERN
+[02:33:43] [INFO] ================================================================================
+
+[02:33:43] [INFO] EXPECTED for PASSENGER gene:
+[02:33:43] [INFO]   ✓ Scattered mutations (no hotspots)
+[02:33:43] [INFO]   ✓ Uniform distribution across protein
+[02:33:43] [INFO]   ✓ High missense:nonsense ratio
+[02:33:43] [INFO]   ✓ No domain-specific clustering
+[02:33:43] [INFO] 
+[02:33:43] [INFO] EXPECTED for DRIVER gene:
+[02:33:43] [INFO]   ✓ Clustered mutations (hotspots)
+[02:33:43] [INFO]   ✓ Domain-specific enrichment
+[02:33:43] [INFO]   ✓ Recurrent positions
+[02:33:43] [INFO]   ✓ Functional domain bias
+[02:33:43] [INFO] 
+[02:33:43] [INFO] Based on mutation patterns, RYR2 appears to be:
+[02:33:43] [INFO]   [Will be determined after running analysis]
