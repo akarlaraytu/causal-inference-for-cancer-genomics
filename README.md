@@ -10,23 +10,11 @@ This project demonstrates an end-to-end workflow that moves beyond simple correl
 
 The core narrative is told through the contrasting stories of two genes: **RYR2**, a statistically significant but ultimately false positive, and **KMT2C**, a borderline candidate with strong evidence of being a true prognostic driver.
 
-### The Core Finding at a Glance
-
-![Comparative Summary of RYR2 vs KMT2C](figures/publication_quality/Figure3_RYR2_vs_KMT2C_Comparative.jpg)
-
----
+--
 
 ## 📖 Abstract
 
 Identifying prognostic genes from large-scale genomic datasets is a cornerstone of modern cancer research. However, the high dimensionality and pervasive confounding factors (e.g., tumor stage, patient age, hypermutation status) make it easy to find spurious correlations. Standard statistical tests often fail to distinguish between a gene that **causes** poor outcomes and one that is merely a **passenger** associated with other causal factors. This project introduces a robust, multi-stage computational pipeline to address this challenge. By integrating advanced causal inference methods with skeptical deep-dive validation, our workflow successfully identifies and distinguishes true biological signals from statistical noise. We demonstrate its efficacy by first identifying **RYR2** as a significant prognostic marker, then conclusively proving it to be a false positive driven by gene size and hypermutation. In contrast, we validate **KMT2C**, a borderline statistical candidate, as a promising and biologically plausible prognostic driver.
-
----
-
-## 🔧 The Methodological Journey: From V1 Failures to V2 Success
-
-A key part of this project was learning from an initial, flawed pipeline (V1). The V2 pipeline was engineered specifically to solve the critical issues that often plague bioinformatics analyses, ensuring robust and reproducible results.
-
-![Methodological Journey](figures/publication_quality/Figure4_Methodological_Journey.jpg)
 
 ---
 
