@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-10-21T02:22:26.034100",
+  "bias_statistics": {
+    "correlation_rho": 0.261837654323249,
+    "correlation_p": 8.020440877845748e-74,
+    "median_size_significant": 21.0,
+    "median_size_nonsignificant": 21.0,
+    "mannwhitney_p": 0.12181596396591099,
+    "pct_large_in_significant": 0.625,
+    "pct_large_in_nonsignificant": 0.511793502447708,
+    "large_gene_enrichment": 1.2211956521739131,
+    "fisher_odds_ratio": 1.2225868197976484,
+    "fisher_p": 0.5690365712197565,
+    "evidence_of_size_bias": false
+  },
+  "top_large_significant_genes": [
+    {
+      "gene": "MDN1",
+      "exon_count": 105.0,
+      "p_value": 0.0358402930475425,
+      "is_known_passenger": false
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-10-21T02:19:32.730685",
+  "gene_analyzed": "KMT2C",
+  "n_subtypes": 2,
+  "heterogeneity_test": {
+    "max_effect_subtype": "Luminal_A",
+    "max_hr": 1.6504955920205353,
+    "min_effect_subtype": "Luminal_B",
+    "min_hr": 9.520377166103912e-08,
+    "fold_difference": 17336451.73110278,
+    "z_statistic": 0.0,
+    "p_value": 1.0,
+    "significant_heterogeneity": false
+  },
+  "significant_subtypes": [],
+  "non_significant_subtypes": [
+    "Luminal_A",
+    "Luminal_B"
+  ]
+}

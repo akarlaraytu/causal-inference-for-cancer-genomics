@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-10-21T02:20:42.362185",
+  "cohort": {
+    "n_patients": 967,
+    "n_events": 133,
+    "event_rate": 0.1375387797311272
+  },
+  "power_summary": {
+    "median_power_tcga": 0.15050754111892084,
+    "median_power_metabric": 0.31958700063227785,
+    "n_adequate_tcga": 0,
+    "n_adequate_metabric": 1,
+    "median_n_required": 8857.047565523626
+  },
+  "key_genes": [
+    {
+      "gene": "RYR2",
+      "tcga_power": 0.5285682351020096,
+      "metabric_power": 0.9053343637518013,
+      "n_required_80pct": 1838.8346245256153
+    },
+    {
+      "gene": "KMT2C",
+      "tcga_power": 0.2984498252189179,
+      "metabric_power": 0.6350383268926385,
+      "n_required_80pct": 3705.9053465255297
+    },
+    {
+      "gene": "TP53",
+      "tcga_power": 0.3000277952542836,
+      "metabric_power": 0.6377857053155185,
+      "n_required_80pct": 3682.4849774674444
+    },
+    {
+      "gene": "CDH1",
+      "tcga_power": 0.2650580926063828,
+      "metabric_power": 0.5737059491074489,
+      "n_required_80pct": 4276.982399132583
+    },
+    {
+      "gene": "TTN",
+      "tcga_power": 0.15050754111892084,
+      "metabric_power": 0.31958700063227785,
+      "n_required_80pct": 8857.047565523626
+    },
+    {
+      "gene": "MAP3K1",
+      "tcga_power": 0.15722548115782853,
+      "metabric_power": 0.3360687246210179,
+      "n_required_80pct": 8338.793241963098
+    },
+    {
+      "gene": "HMCN1",
+      "tcga_power": 0.1587229483037943,
+      "metabric_power": 0.33972288523723715,
+      "n_required_80pct": 8231.352651709465
+    },
+    {
+      "gene": "SYNE1",
+      "tcga_power": 0.16346702895373266,
+      "metabric_power": 0.3512489534983392,
+      "n_required_80pct": 7908.371186051347
+    },
+    {
+      "gene": "PTEN",
+      "tcga_power": 0.07696704173949409,
+      "metabric_power": 0.1357756786580695,
+      "n_required_80pct": 26597.442405816433
+    },
+    {
+      "gene": "USH2A",
+      "tcga_power": 0.07735145737987563,
+      "metabric_power": 0.13671097989835101,
+      "n_required_80pct": 26334.759203634003
+    },
+    {
+      "gene": "NCOR1",
+      "tcga_power": 0.07152286489536328,
+      "metabric_power": 0.122628360912716,
+      "n_required_80pct": 30923.2261115316
+    },
+    {
+      "gene": "GATA3",
+      "tcga_power": 0.06474431084307108,
+      "metabric_power": 0.10656035524853569,
+      "n_required_80pct": 38528.00249012446
+    },
+    {
+      "gene": "MUC16",
+      "tcga_power": 0.04733802041919763,
+      "metabric_power": 0.06747315648660134,
+      "n_required_80pct": 91041.96660354841
+    },
+    {
+      "gene": "PIK3CA",
+      "tcga_power": 0.03712801298862382,
+      "metabric_power": 0.04665525258122858,
+      "n_required_80pct": 248026.89726878647
+    },
+    {
+      "gene": "FLG",
+      "tcga_power": 0.026996219637879897,
+      "metabric_power": 0.028279684284687485,
+      "n_required_80pct": 6941461.241526322
+    }
+  ]
+}

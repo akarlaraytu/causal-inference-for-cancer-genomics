@@ -1,0 +1,122 @@
+[02:19:29] [INFO] 
+================================================================================
+[02:19:29] [INFO]   SUBTYPE-STRATIFIED ANALYSIS
+[02:19:29] [INFO] ================================================================================
+
+[02:19:29] [INFO] 🔬 Discovering subtype-specific effects for KMT2C
+[02:19:29] [INFO] 📌 Novel biological finding for Bioinformatics submission
+[02:19:29] [INFO] 
+================================================================================
+[02:19:29] [INFO]   PHASE 1: DATA LOADING & SUBTYPE IDENTIFICATION
+[02:19:29] [INFO] ================================================================================
+
+[02:19:29] [INFO] Loading merged dataset: results/merged_dataset.csv
+[02:19:30] [INFO]   Dataset shape: (967, 8667)
+[02:19:30] [INFO]   Patients: 967
+[02:19:30] [INFO] 
+🔍 Searching for subtype information...
+[02:19:30] [INFO]    Potential subtype columns: []
+[02:19:30] [WARN]    ⚠️  No subtype column found!
+[02:19:30] [INFO]    Creating synthetic subtypes based on diagnosis types...
+[02:19:30] [INFO]    ✅ Using diagnosis-based proxy subtypes
+[02:19:30] [INFO]    ⚠️  WARNING: Using SYNTHETIC subtypes!
+[02:19:30] [INFO]    → For publication, download real PAM50 data from TCGA
+[02:19:30] [INFO]    → See: https://gdac.broadinstitute.org/
+[02:19:30] [INFO] 
+📊 Subtype distribution:
+[02:19:30] [INFO]    Luminal_A: 742 (76.7%)
+[02:19:30] [INFO]    Luminal_B: 145 (15.0%)
+[02:19:30] [INFO]    Other: 65 (6.7%)
+[02:19:30] [INFO]    Basal: 15 (1.6%)
+[02:19:30] [INFO] 
+✅ Subtypes with n≥30: 3
+[02:19:30] [INFO]    ['Luminal_A', 'Luminal_B', 'Other']
+[02:19:30] [INFO] 
+================================================================================
+[02:19:30] [INFO]   PHASE 2: SUBTYPE-STRATIFIED ANALYSIS FOR KMT2C
+[02:19:30] [INFO] ================================================================================
+
+[02:19:30] [INFO] 🔬 Testing KMT2C effect in each subtype...
+[02:19:30] [INFO]    Subtypes: ['Luminal_A', 'Luminal_B', 'Other']
+[02:19:30] [INFO] 
+======================================================================
+[02:19:30] [INFO] SUBTYPE: Luminal_A
+[02:19:30] [INFO] ======================================================================
+[02:19:30] [INFO]   [1/4] Cohort size check...
+[02:19:30] [INFO]     Total patients: 742
+[02:19:30] [INFO]     KMT2C mutated: 74 (10.0%)
+[02:19:30] [INFO]     Wild-type: 668
+[02:19:30] [INFO]   [2/4] Univariate association...
+[02:19:30] [INFO]     Mortality (mutated): 21.6%
+[02:19:30] [INFO]     Mortality (wild-type): 12.4%
+[02:19:30] [INFO]     Difference: 9.2%
+[02:19:30] [INFO]     Fisher's exact: OR=1.944, p=0.0451
+[02:19:30] [INFO]   [3/4] Cox proportional hazards (adjusted)...
+[02:19:30] [INFO]     HR = 1.650 [0.961, 2.835]
+[02:19:30] [INFO]     p-value = 0.0694
+[02:19:30] [INFO]     ✗ Not significant
+[02:19:30] [INFO]   [4/4] Kaplan-Meier survival comparison...
+[02:19:30] [INFO]     Log-rank test: p=0.0274
+[02:19:30] [INFO] 
+======================================================================
+[02:19:30] [INFO] SUBTYPE: Luminal_B
+[02:19:30] [INFO] ======================================================================
+[02:19:30] [INFO]   [1/4] Cohort size check...
+[02:19:30] [INFO]     Total patients: 145
+[02:19:30] [INFO]     KMT2C mutated: 7 (4.8%)
+[02:19:30] [INFO]     Wild-type: 138
+[02:19:30] [INFO]   [2/4] Univariate association...
+[02:19:30] [INFO]     Mortality (mutated): 0.0%
+[02:19:30] [INFO]     Mortality (wild-type): 11.6%
+[02:19:30] [INFO]     Difference: -11.6%
+[02:19:30] [INFO]     Fisher's exact: OR=0.000, p=1.0000
+[02:19:30] [INFO]   [3/4] Cox proportional hazards (adjusted)...
+[02:19:30] [INFO]     HR = 0.000 [0.000, inf]
+[02:19:30] [INFO]     p-value = 0.9959
+[02:19:30] [INFO]     ✗ Not significant
+[02:19:30] [INFO]   [4/4] Kaplan-Meier survival comparison...
+[02:19:30] [INFO]     Log-rank test: p=0.3412
+[02:19:30] [INFO] 
+======================================================================
+[02:19:30] [INFO] SUBTYPE: Other
+[02:19:30] [INFO] ======================================================================
+[02:19:30] [INFO]   [1/4] Cohort size check...
+[02:19:30] [INFO]     Total patients: 65
+[02:19:30] [INFO]     KMT2C mutated: 4 (6.2%)
+[02:19:30] [INFO]     Wild-type: 61
+[02:19:30] [WARN]     ⚠️  Too few mutations, skipping
+[02:19:30] [INFO] 
+================================================================================
+[02:19:30] [INFO]   PHASE 3: EFFECT HETEROGENEITY TEST FOR KMT2C
+[02:19:30] [INFO] ================================================================================
+
+[02:19:30] [INFO] 🔬 Testing if KMT2C effect differs across subtypes...
+[02:19:30] [INFO] 
+📊 Effect sizes by subtype:
+[02:19:30] [INFO]    Luminal_A: HR=1.650 [0.961, 2.835]
+[02:19:30] [INFO]    Luminal_B: HR=0.000 [0.000, inf]
+[02:19:30] [INFO] 
+📈 Effect range:
+[02:19:30] [INFO]    Highest effect: Luminal_A (HR=1.650)
+[02:19:30] [INFO]    Lowest effect: Luminal_B (HR=0.000)
+[02:19:30] [INFO]    Fold difference: 17336451.73x
+[02:19:30] [INFO] 
+🔬 Heterogeneity test:
+[02:19:30] [INFO]    Z-statistic: 0.000
+[02:19:30] [INFO]    P-value: 1.0000
+[02:19:30] [INFO]    ✗ No significant heterogeneity
+[02:19:30] [INFO]    → Effect appears consistent across subtypes
+[02:19:30] [INFO] 
+================================================================================
+[02:19:30] [INFO]   PHASE 4: SUBTYPE VISUALIZATIONS
+[02:19:30] [INFO] ================================================================================
+
+[02:19:30] [INFO] 📊 Creating subtype comparison plots for KMT2C...
+[02:19:32] [INFO] ✅ Visualization saved: figures/subtype_analysis/kmt2c_subtype_analysis.png
+[02:19:32] [INFO] 
+================================================================================
+[02:19:32] [INFO]   PHASE 5: SAVE OUTPUTS
+[02:19:32] [INFO] ================================================================================
+
+[02:19:32] [INFO] ✅ Subtype results saved: results/subtype_analysis/kmt2c_subtype_effects.csv
+[02:19:32] [INFO] ✅ Statistics saved: results/subtype_analysis/subtype_statistics.json

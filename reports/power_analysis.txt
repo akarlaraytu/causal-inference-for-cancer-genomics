@@ -1,0 +1,297 @@
+[02:20:37] [INFO] 
+================================================================================
+[02:20:37] [INFO]   COMPREHENSIVE POWER ANALYSIS
+[02:20:37] [INFO] ================================================================================
+
+[02:20:37] [INFO] 🔬 Quantifying statistical power limitations
+[02:20:37] [INFO] 📌 Explaining null findings and justifying future validation
+[02:20:37] [INFO] 
+================================================================================
+[02:20:37] [INFO]   PHASE 1: COHORT CHARACTERISTICS
+[02:20:37] [INFO] ================================================================================
+
+[02:20:37] [INFO] Loading cohort data: results/merged_dataset.csv
+[02:20:38] [INFO] 📊 TCGA-BRCA Cohort:
+[02:20:38] [INFO]    Total patients: 967
+[02:20:38] [INFO]    Events (deaths): 133.0
+[02:20:38] [INFO]    Event rate: 13.8%
+[02:20:38] [INFO] 
+⚠️  CRITICAL OBSERVATION:
+[02:20:38] [INFO]    Event rate of 13.8% is LOW for survival analysis
+[02:20:38] [INFO]    → Limits statistical power for detecting effects
+[02:20:38] [INFO] 
+✅ Loaded causal results: 15 genes
+[02:20:38] [INFO] 
+================================================================================
+[02:20:38] [INFO]   PHASE 2: POWER CALCULATIONS FOR KEY GENES
+[02:20:38] [INFO] ================================================================================
+
+[02:20:38] [INFO] 🔬 Calculating statistical power for key genes...
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: RYR2
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 5.7%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.47
+[02:20:39] [INFO]     Effect size (HR): 0.47
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 52.9%
+[02:20:39] [INFO]     Required events (80% power): 253
+[02:20:39] [INFO]     Required patients (80% power): 1839
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 90.5%
+[02:20:39] [INFO]     ✅ Adequate power for replication
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: KMT2C
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 8.8%
+[02:20:39] [INFO]     Using literature HR: 1.55
+[02:20:39] [INFO]     Effect size (HR): 1.55
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 29.8%
+[02:20:39] [INFO]     Required events (80% power): 510
+[02:20:39] [INFO]     Required patients (80% power): 3706
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 63.5%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: TP53
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 34.2%
+[02:20:39] [INFO]     Using literature HR: 1.30
+[02:20:39] [INFO]     Effect size (HR): 1.30
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 30.0%
+[02:20:39] [INFO]     Required events (80% power): 506
+[02:20:39] [INFO]     Required patients (80% power): 3682
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 63.8%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: CDH1
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 13.2%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.71
+[02:20:39] [INFO]     Effect size (HR): 0.71
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 26.5%
+[02:20:39] [INFO]     Required events (80% power): 588
+[02:20:39] [INFO]     Required patients (80% power): 4277
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 57.4%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: TTN
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 17.3%
+[02:20:39] [INFO]     Estimated HR from ATE: 1.24
+[02:20:39] [INFO]     Effect size (HR): 1.24
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 15.1%
+[02:20:39] [INFO]     Required events (80% power): 1218
+[02:20:39] [INFO]     Required patients (80% power): 8857
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 32.0%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: MAP3K1
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 8.5%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.74
+[02:20:39] [INFO]     Effect size (HR): 0.74
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 15.7%
+[02:20:39] [INFO]     Required events (80% power): 1147
+[02:20:39] [INFO]     Required patients (80% power): 8339
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 33.6%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: HMCN1
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 6.0%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.70
+[02:20:39] [INFO]     Effect size (HR): 0.70
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 15.9%
+[02:20:39] [INFO]     Required events (80% power): 1132
+[02:20:39] [INFO]     Required patients (80% power): 8231
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 34.0%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: SYNE1
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 5.5%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.69
+[02:20:39] [INFO]     Effect size (HR): 0.69
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 16.3%
+[02:20:39] [INFO]     Required events (80% power): 1088
+[02:20:39] [INFO]     Required patients (80% power): 7908
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 35.1%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: PTEN
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 5.4%
+[02:20:39] [INFO]     Estimated HR from ATE: 1.23
+[02:20:39] [INFO]     Effect size (HR): 1.23
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 7.7%
+[02:20:39] [INFO]     Required events (80% power): 3658
+[02:20:39] [INFO]     Required patients (80% power): 26597
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 13.6%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: USH2A
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 5.3%
+[02:20:39] [INFO]     Estimated HR from ATE: 1.23
+[02:20:39] [INFO]     Effect size (HR): 1.23
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 7.7%
+[02:20:39] [INFO]     Required events (80% power): 3622
+[02:20:39] [INFO]     Required patients (80% power): 26335
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 13.7%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: NCOR1
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 5.1%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.82
+[02:20:39] [INFO]     Effect size (HR): 0.82
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 7.2%
+[02:20:39] [INFO]     Required events (80% power): 4253
+[02:20:39] [INFO]     Required patients (80% power): 30923
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 12.3%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: GATA3
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 12.9%
+[02:20:39] [INFO]     Estimated HR from ATE: 1.12
+[02:20:39] [INFO]     Effect size (HR): 1.12
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 6.5%
+[02:20:39] [INFO]     Required events (80% power): 5299
+[02:20:39] [INFO]     Required patients (80% power): 38528
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 10.7%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: MUC16
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 10.2%
+[02:20:39] [INFO]     Estimated HR from ATE: 1.09
+[02:20:39] [INFO]     Effect size (HR): 1.09
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 4.7%
+[02:20:39] [INFO]     Required events (80% power): 12522
+[02:20:39] [INFO]     Required patients (80% power): 91042
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 6.7%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: PIK3CA
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 33.9%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.97
+[02:20:39] [INFO]     Effect size (HR): 0.97
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 3.7%
+[02:20:39] [INFO]     Required events (80% power): 34113
+[02:20:39] [INFO]     Required patients (80% power): 248027
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 4.7%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+======================================================================
+[02:20:39] [INFO] GENE: FLG
+[02:20:39] [INFO] ======================================================================
+[02:20:39] [INFO]   [1/3] Parameters:
+[02:20:39] [INFO]     Mutation frequency: 5.8%
+[02:20:39] [INFO]     Estimated HR from ATE: 0.99
+[02:20:39] [INFO]     Effect size (HR): 0.99
+[02:20:39] [INFO]   [2/3] Power calculation...
+[02:20:39] [INFO]     Achieved power: 2.7%
+[02:20:39] [INFO]     Required events (80% power): 954720
+[02:20:39] [INFO]     Required patients (80% power): 6941461
+[02:20:39] [INFO]   [3/3] METABRIC projection (n=2509)...
+[02:20:39] [INFO]     Projected power: 2.8%
+[02:20:39] [INFO]     ⚠️  Still underpowered, need larger cohort
+[02:20:39] [INFO] 
+================================================================================
+[02:20:39] [INFO] POWER SUMMARY
+[02:20:39] [INFO] ================================================================================
+
+[02:20:39] [INFO] 📊 Adequately powered (≥80%):
+[02:20:39] [INFO]    TCGA (n=967): 0 / 15 genes
+[02:20:39] [INFO]    METABRIC (n=2,509): 1 / 15 genes
+[02:20:39] [INFO] 
+⚠️  CRITICAL FINDING:
+[02:20:39] [INFO]    NO GENES adequately powered in TCGA!
+[02:20:39] [INFO]    → Explains lack of FDR-significant findings
+[02:20:39] [INFO]    → Justifies need for larger cohorts (METABRIC)
+[02:20:39] [INFO] 
+================================================================================
+[02:20:39] [INFO]   PHASE 3: POWER CURVES GENERATION
+[02:20:39] [INFO] ================================================================================
+
+[02:20:39] [INFO] 📈 Generating power curves...
+[02:20:39] [INFO]    HR range: 1.2 to 3.0
+[02:20:39] [INFO]    Mutation frequencies: [0.05, 0.1, 0.2]
+[02:20:39] [INFO] 
+  Mutation frequency: 5%
+[02:20:39] [INFO] 
+  Mutation frequency: 10%
+[02:20:39] [INFO] 
+  Mutation frequency: 20%
+[02:20:39] [INFO] 
+✅ Power curves generated: 57 data points
+[02:20:39] [INFO] 
+================================================================================
+[02:20:39] [INFO]   PHASE 4: POWER VISUALIZATIONS
+[02:20:39] [INFO] ================================================================================
+
+[02:20:39] [INFO] 📊 Creating power analysis plots...
+[02:20:42] [INFO] ✅ Visualization saved: figures/power_analysis/comprehensive_power_analysis.png
+[02:20:42] [INFO] 
+================================================================================
+[02:20:42] [INFO]   PHASE 5: SAVE OUTPUTS
+[02:20:42] [INFO] ================================================================================
+
+[02:20:42] [INFO] ✅ Power calculations saved: results/power_analysis/power_calculations.csv
+[02:20:42] [INFO] ✅ Statistics saved: results/power_analysis/power_statistics.json

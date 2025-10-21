@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-10-21T02:12:21.278873",
+  "benchmark_results": {
+    "n_cox_discoveries": 0,
+    "n_framework_discoveries": 1,
+    "n_overlap": 0,
+    "n_framework_rescued": 1,
+    "n_cox_only": 0
+  },
+  "conclusion": {
+    "standard_method_failed": true,
+    "framework_rescued_signals": true,
+    "framework_superior": true
+  }
+}

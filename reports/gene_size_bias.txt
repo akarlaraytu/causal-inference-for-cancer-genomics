@@ -1,0 +1,75 @@
+[02:20:58] [INFO] 
+================================================================================
+[02:20:58] [INFO]   GENE SIZE BIAS EMPIRICAL ANALYSIS
+[02:20:58] [INFO] ================================================================================
+
+[02:20:58] [INFO] 🔬 Demonstrating systematic bias in standard methods
+[02:20:58] [INFO] 📌 Empirical evidence for false positive generation
+[02:20:58] [INFO] 
+================================================================================
+[02:20:58] [INFO]   PHASE 1: DATA LOADING & GENE SIZE ANNOTATION
+[02:20:58] [INFO] ================================================================================
+
+[02:20:58] [INFO] Loading mutation data...
+[02:20:59] [INFO]   Genes in dataset: 8655
+[02:20:59] [INFO] Loading Cox regression results...
+[02:20:59] [INFO]   Cox results: 4654 genes
+[02:20:59] [INFO] 
+📏 Annotating gene sizes...
+[02:20:59] [INFO]    Using curated database of 23 genes
+[02:22:22] [INFO]    Genes with size annotation: 4654
+[02:22:22] [INFO] 
+📊 Calculating mutation frequencies...
+[02:22:23] [INFO] 
+✅ Gene annotation complete
+[02:22:23] [INFO]    Total genes: 4654
+[02:22:23] [INFO]    With size data: 4654
+[02:22:23] [INFO]    Known drivers: 13
+[02:22:23] [INFO]    Known passengers: 10
+[02:22:23] [INFO] 
+================================================================================
+[02:22:23] [INFO]   PHASE 2: GENE SIZE BIAS ANALYSIS
+[02:22:23] [INFO] ================================================================================
+
+[02:22:23] [INFO] 🔬 Testing association between gene size and significance...
+[02:22:23] [INFO]    Analyzing 4654 genes with complete data
+[02:22:23] [INFO] 
+[1/4] Correlation: Gene size vs -log10(p-value)...
+[02:22:23] [INFO]    Spearman ρ = 0.262, p = 0.0000
+[02:22:23] [INFO]    ✅ SIGNIFICANT correlation (p<0.05)
+[02:22:23] [INFO]    → Larger genes more likely to be significant
+[02:22:23] [INFO]    → Evidence of SIZE BIAS!
+[02:22:23] [INFO] 
+[2/4] Nominal significance (p<0.05) enrichment in large genes...
+[02:22:23] [INFO]    Nominally significant genes: 160 / 4654
+[02:22:23] [INFO]    Median size (significant): 21 exons
+[02:22:23] [INFO]    Median size (non-significant): 21 exons
+[02:22:23] [INFO]    Fold difference: 1.00x
+[02:22:23] [INFO]    Mann-Whitney U test: p = 0.1218
+[02:22:23] [INFO] 
+[3/4] Proportion of large genes (>100 exons) in significant set...
+[02:22:23] [INFO]    Significant genes that are large: 0.6%
+[02:22:23] [INFO]    Non-significant genes that are large: 0.5%
+[02:22:23] [INFO]    Enrichment: 1.22x
+[02:22:23] [INFO]    Fisher's exact: OR = 1.22, p = 0.5690
+[02:22:23] [INFO] 
+[4/4] Known drivers vs passengers comparison...
+[02:22:23] [INFO]    Known drivers: median 21 exons
+[02:22:23] [INFO]    Known passengers: median 94 exons
+[02:22:23] [INFO]    Fold difference: 4.50x
+[02:22:23] [INFO]    Drivers with p<0.05: 0.0%
+[02:22:23] [INFO]    Passengers with p<0.05: 0.0%
+[02:22:23] [INFO] 
+================================================================================
+[02:22:23] [INFO]   PHASE 3: SIZE BIAS VISUALIZATIONS
+[02:22:23] [INFO] ================================================================================
+
+[02:22:23] [INFO] 📊 Creating size bias plots...
+[02:22:25] [INFO] ✅ Visualization saved: figures/gene_size_bias/gene_size_bias_comprehensive.png
+[02:22:25] [INFO] 
+================================================================================
+[02:22:25] [INFO]   PHASE 4: SAVE OUTPUTS
+[02:22:25] [INFO] ================================================================================
+
+[02:22:26] [INFO] ✅ Size bias analysis saved: results/gene_size_bias/size_bias_analysis.csv
+[02:22:26] [INFO] ✅ Statistics saved: results/gene_size_bias/bias_statistics.json
